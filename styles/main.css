@@ -154,7 +154,7 @@ section {
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--sp-6);
 }
 
@@ -226,6 +226,7 @@ section {
   margin-bottom: var(--sp-3);
   line-height: 1.5;
   flex: 1;
+  display: none;
 }
 
 .work-card__impact {
@@ -491,7 +492,11 @@ section {
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .work-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .work-card__desc {
+    display: block;
   }
 }
 
