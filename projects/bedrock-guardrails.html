@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guardrails for Amazon Bedrock — Config-driven onboarding of 100+ Gen AI models for re:Invent 2024 launch. Case study by Heejae Kim.">
+    <title>Guardrails for Amazon Bedrock — Heejae Kim</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLDMVLH905"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RLDMVLH905');
+    </script>
+
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+    <main class="case-study">
+        <div class="container">
+            <a href="../" class="case-study__back">← Back to Portfolio</a>
+
+            <h1>Guardrails for Amazon Bedrock</h1>
+            <p class="case-study__meta">Amazon Web Services · SDE II · 2024–present</p>
+
+            <hr>
+
+            <h2>Overview</h2>
+            <p>
+                Amazon Bedrock Guardrails lets customers define safety and compliance policies
+                that are automatically applied to Gen AI model inputs and outputs.
+                I worked on the backend inference pipeline and the console frontend,
+                focusing on making guardrails work across all model types Bedrock supports.
+            </p>
+
+            <h2>Problem</h2>
+            <p>
+                Each new model onboarded to Guardrails required custom integration code —
+                handling its specific request/response format, modality (text, image, video),
+                and API contract. This meant every model took roughly 3 weeks of engineering work
+                to integrate, and the process was error-prone with each modality owner
+                implementing their own adapter logic.
+            </p>
+            <p>
+                With SageMaker JumpStart offering 100+ foundation models and Bedrock rapidly
+                expanding its model catalog, this manual approach was unsustainable.
+                The team needed to onboard all supported models before the re:Invent 2024 launch deadline.
+            </p>
+
+            <h2>Solution</h2>
+            <h3>1. Config-Driven Model Onboarding</h3>
+            <p>
+                Redesigned the onboarding flow from custom code per model to a declarative
+                configuration system. Each model's guardrails integration is now defined by a config
+                file specifying its modality, request/response schema mapping, and policy application points.
+                New models can be onboarded by adding a config entry — no code changes required.
+            </p>
+
+            <h3>2. Cross-Modality Compatibility</h3>
+            <p>
+                Partnered with multiple modality owners (text, image, video) to validate that
+                the config-driven system correctly handles each modality's unique guardrails requirements.
+                Ensured zero-regression across all existing model integrations during the migration.
+            </p>
+
+            <h3>3. Console Decoupling</h3>
+            <p>
+                Decoupled the Guardrails console code into a separate package from the core
+                Bedrock console. Previously, any Guardrails UI change required code review
+                from the core Bedrock team, creating a bottleneck. After decoupling,
+                the Guardrails team owns their release cycle independently.
+            </p>
+
+            <h2>Impact</h2>
+            <ul>
+                <li>100+ models onboarded to Guardrails for <strong>re:Invent 2024</strong> launch — zero regressions</li>
+                <li>Model onboarding time reduced from ~3 weeks to config-only (no code change)</li>
+                <li>Code review delay cut by <strong>50%</strong> after console decoupling</li>
+                <li>Scalable architecture: future models automatically inherit guardrails support</li>
+            </ul>
+
+            <nav class="case-study__nav">
+                <a href="aws-perf.html">← Previous: AWS Performance</a>
+                <a href="turtletalk.html">Next: TurtleTalk →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Heejae Kim</p>
+        </div>
+    </footer>
+
+</body>
+</html>
