@@ -19,114 +19,90 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <a href="#" class="header__name">Heejae Kim</a>
-            <button class="menu-toggle" aria-label="Toggle menu">menu</button>
-            <nav>
-                <ul class="header__nav">
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero -->
+    <!-- Hero (compact) -->
     <section class="hero">
-        <div class="container">
-            <h1>Heejae Kim</h1>
-            <p class="hero__role">Software Engineer</p>
-            <p class="hero__summary">
-                10 years building web products at AWS and NAVER.
-            </p>
-            <p class="hero__focus">Frontend performance · Interactive media · Developer tools</p>
-            <div class="hero__links">
-                <a href="https://github.com/happyhj">GitHub</a>
-                <a href="https://linkedin.com/in/heejaekm">LinkedIn</a>
-                <a href="mailto:happyhj@gmail.com">Email</a>
+        <div class="container container--wide">
+            <div class="hero__inner">
+                <div>
+                    <h1>Heejae Kim</h1>
+                    <p class="hero__role">Software Engineer</p>
+                </div>
+                <div>
+                    <p class="hero__summary">
+                        I build fast, interactive frontends for data-intensive products.
+                    </p>
+                    <p class="hero__focus">10 years at AWS and NAVER · React · WebGL · Performance</p>
+                    <div class="hero__links">
+                        <a href="https://github.com/happyhj">GitHub</a>
+                        <a href="https://linkedin.com/in/heejaekm">LinkedIn</a>
+                        <a href="mailto:happyhj@gmail.com">Email</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <hr class="container">
-
-    <!-- Selected Work -->
-    <section id="work">
-        <div class="container">
+    <!-- Selected Work — 3-column grid -->
+    <section id="work" class="work-section">
+        <div class="container container--wide">
             <p class="section-title">Selected Work</p>
 
-            <!-- 01 View360 -->
-            <article class="work-entry">
-                <div class="work-entry__header">
-                    <span class="work-entry__number">01</span>
-                    <h3 class="work-entry__title">View360: Open Source 360° Viewer</h3>
-                </div>
-                <p class="work-entry__meta">NAVER · 2016–2018</p>
-                <div class="work-entry__thumb">
-                    <img src="images/view360-hero.png"
-                         alt="View360 — 360 degree panorama viewer running on a mobile phone"
-                         loading="lazy">
-                </div>
-                <div class="work-entry__desc">
-                    <p>Built a WebGL-based 360° image/video viewer from scratch with custom motion sensor fusion for stable mobile experience.</p>
-                </div>
-                <p class="work-entry__impact">531 GitHub stars · 5K+ weekly NPM downloads · Adopted by Amazon.com and Hyundai</p>
-                <div class="work-entry__tags">
-                    <span class="tag">WebGL</span>
-                    <span class="tag">Motion Sensors</span>
-                    <span class="tag">Open Source</span>
-                    <span class="tag">TypeScript</span>
-                </div>
-                <div class="work-entry__link">
-                    <a href="projects/view360.html">Read more →</a>
-                </div>
-            </article>
+            <div class="work-grid">
+                <!-- 01 View360 -->
+                <article class="work-card">
+                    <a href="projects/view360.html" class="work-card__thumb">
+                        <img src="images/view360-hero.png"
+                             alt="View360 — 360 degree panorama viewer running on a mobile phone"
+                             loading="lazy">
+                    </a>
+                    <div class="work-card__body">
+                        <h3 class="work-card__title"><a href="projects/view360.html">View360: Open Source 360° Viewer</a></h3>
+                        <p class="work-card__meta">NAVER · 2016–2018</p>
+                        <p class="work-card__desc">Built a WebGL-based 360° image/video viewer from scratch with custom motion sensor fusion for stable mobile experience.</p>
+                        <p class="work-card__impact">531 GitHub stars · Adopted by Amazon.com and Hyundai</p>
+                        <div class="work-card__tags">
+                            <span class="tag">WebGL</span>
+                            <span class="tag">Motion Sensors</span>
+                            <span class="tag">Open Source</span>
+                        </div>
+                    </div>
+                </article>
 
-            <!-- 02 AWS Performance -->
-            <article class="work-entry">
-                <div class="work-entry__header">
-                    <span class="work-entry__number">02</span>
-                    <h3 class="work-entry__title">Frontend Performance at AWS</h3>
-                </div>
-                <p class="work-entry__meta">AWS · 2021–2024</p>
-                <div class="work-entry__desc">
-                    <p>Systematic performance optimization across SageMaker Data Wrangler, SageMaker Canvas, and S3 Console.</p>
-                </div>
-                <p class="work-entry__impact">97% render time reduction · 41% bundle size cut · 71% response time improvement</p>
-                <div class="work-entry__tags">
-                    <span class="tag">React</span>
-                    <span class="tag">Performance</span>
-                    <span class="tag">D3</span>
-                    <span class="tag">IntersectionObserver</span>
-                </div>
-                <div class="work-entry__link">
-                    <a href="projects/aws-perf.html">Read more →</a>
-                </div>
-            </article>
+                <!-- 02 AWS Performance -->
+                <article class="work-card">
+                    <div class="work-card__thumb work-card__thumb--placeholder">
+                        <span class="work-card__icon">⚡</span>
+                    </div>
+                    <div class="work-card__body">
+                        <h3 class="work-card__title"><a href="projects/aws-perf.html">Frontend Performance at AWS</a></h3>
+                        <p class="work-card__meta">AWS · 2021–2024</p>
+                        <p class="work-card__desc">Systematic performance optimization across SageMaker Data Wrangler, SageMaker Canvas, and S3 Console.</p>
+                        <p class="work-card__impact">97% render time reduction · 41% bundle size cut</p>
+                        <div class="work-card__tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Performance</span>
+                            <span class="tag">D3</span>
+                        </div>
+                    </div>
+                </article>
 
-            <!-- 03 TurtleTalk -->
-            <article class="work-entry">
-                <div class="work-entry__header">
-                    <span class="work-entry__number">03</span>
-                    <h3 class="work-entry__title">TurtleTalk: Voice-Driven Programming Game</h3>
-                </div>
-                <p class="work-entry__meta">NAVER · ACM CHI 2019</p>
-                <div class="work-entry__desc">
-                    <p>Full-stack browser prototype teaching kids programming through voice commands and visual turtle graphics.</p>
-                </div>
-                <p class="work-entry__impact">Published at ACM CHI 2019</p>
-                <div class="work-entry__tags">
-                    <span class="tag">Web Speech API</span>
-                    <span class="tag">Machine Translation</span>
-                    <span class="tag">HCI</span>
-                </div>
-                <div class="work-entry__link">
-                    <a href="projects/turtletalk.html">Read more →</a>
-                </div>
-            </article>
+                <!-- 03 TurtleTalk -->
+                <article class="work-card">
+                    <div class="work-card__thumb work-card__thumb--placeholder">
+                        <span class="work-card__icon">🐢</span>
+                    </div>
+                    <div class="work-card__body">
+                        <h3 class="work-card__title"><a href="projects/turtletalk.html">TurtleTalk: Voice-Driven Programming Game</a></h3>
+                        <p class="work-card__meta">NAVER · ACM CHI 2019</p>
+                        <p class="work-card__desc">Full-stack browser prototype teaching kids programming through voice commands and visual turtle graphics.</p>
+                        <p class="work-card__impact">Published at ACM CHI 2019</p>
+                        <div class="work-card__tags">
+                            <span class="tag">Web Speech API</span>
+                            <span class="tag">HCI</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 
