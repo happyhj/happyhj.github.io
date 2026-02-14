@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frontend performance optimization at AWS — 97% render time reduction, 41% bundle size cut. Case study by Heejae Kim.">
+    <title>Frontend Performance at AWS — Heejae Kim</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLDMVLH905"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RLDMVLH905');
+    </script>
+
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="../" class="header__name">Heejae Kim</a>
+            <nav>
+                <ul class="header__nav">
+                    <li><a href="../#work">Work</a></li>
+                    <li><a href="../#research">Research</a></li>
+                    <li><a href="../#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="case-study">
+        <div class="container">
+            <a href="../" class="case-study__back">← Back to Portfolio</a>
+
+            <h1>Frontend Performance at AWS</h1>
+            <p class="case-study__meta">Amazon Web Services · SDE II · 2021–2024</p>
+
+            <hr>
+
+            <h2>Overview</h2>
+            <p>
+                Over three years across Amazon S3 Console, SageMaker Data Wrangler, and SageMaker Canvas,
+                I identified and resolved a series of frontend performance bottlenecks in data-intensive AWS console UIs.
+                Each fix targeted a specific, measurable problem.
+            </p>
+
+            <h2>Problem → Solution</h2>
+
+            <!-- Sub-section 1 -->
+            <div class="subsection">
+                <h3>1. Data Quality Report Browser Freeze</h3>
+                <p>
+                    <strong>Product:</strong> SageMaker Canvas (migrated from Data Wrangler)
+                </p>
+                <p>
+                    Data Wrangler's Data Quality Report page fetched all dataset statistics at once and rendered per-column
+                    data quality visualizations using D3 (each creating its own Canvas instance).
+                    When the migration to Canvas expanded supported dataset size to 100+ columns,
+                    the page attempted to initialize N D3 visualization components simultaneously — freezing the browser.
+                </p>
+                <p>
+                    <strong>Solution:</strong> Implemented <code>IntersectionObserver</code>-based lazy rendering.
+                    Each visualization component only initializes when its containing section scrolls into the viewport.
+                    Columns outside the visible area remain unrendered until needed.
+                </p>
+                <p class="subsection__result">
+                    Result: Page loads without freezing regardless of column count.
+                </p>
+            </div>
+
+            <!-- Sub-section 2 -->
+            <div class="subsection">
+                <h3>2. Slow DataGrid Response</h3>
+                <p>
+                    <strong>Product:</strong> SageMaker Data Wrangler
+                </p>
+                <p>
+                    The main DataGrid had a 2.8-second response time to user interactions.
+                    Profiling revealed excessive re-renders cascading through the component tree on every data change.
+                </p>
+                <p>
+                    <strong>Solution:</strong> Applied <code>React.memo</code> to visualization components,
+                    <code>useCallback</code> for event handlers to stabilize references,
+                    and render-on-scroll for DataGrid rows so only visible rows are rendered.
+                </p>
+                <p class="subsection__result">
+                    Result: 0.8s response time — 71% reduction.
+                </p>
+            </div>
+
+            <!-- Metric bar for DataGrid -->
+            <div class="metric">
+                <div class="metric__label">DataGrid Response Time</div>
+                <div class="metric__bar">
+                    <div class="metric__fill" style="width: 29%;"></div>
+                </div>
+                <div class="metric__values">
+                    <span>0.8s (after)</span>
+                    <span>2.8s (before)</span>
+                </div>
+            </div>
+
+            <!-- Sub-section 3 -->
+            <div class="subsection">
+                <h3>3. Data Insights Initial Render</h3>
+                <p>
+                    <strong>Product:</strong> SageMaker Canvas
+                </p>
+                <p>
+                    After migrating Data Wrangler features into Canvas, the Data Insights page took 10.5 seconds
+                    to render and blocked the UI for 75% of that time.
+                </p>
+                <p>
+                    <strong>Solution:</strong> Systematic React optimization —
+                    <code>React.memo</code> on all visualization components to prevent cascade re-renders,
+                    <code>useCallback</code> for stable event handler references,
+                    and lazy component loading so heavy chart components load on demand.
+                </p>
+                <p class="subsection__result">
+                    Result: 0.4s initial render — 97% reduction. UI blocking delay reduced by 75%.
+                </p>
+            </div>
+
+            <!-- Metric bar for render time -->
+            <div class="metric">
+                <div class="metric__label">Data Insights Render Time</div>
+                <div class="metric__bar">
+                    <div class="metric__fill" style="width: 3.8%;"></div>
+                </div>
+                <div class="metric__values">
+                    <span>0.4s (after)</span>
+                    <span>10.5s (before)</span>
+                </div>
+            </div>
+
+            <!-- Sub-section 4 -->
+            <div class="subsection">
+                <h3>4. Bundle Size</h3>
+                <p>
+                    <strong>Product:</strong> SageMaker Canvas
+                </p>
+                <p>
+                    The application bundle had grown to 75MB, impacting cold-start load times
+                    for a data-heavy UI that users expect to be responsive.
+                </p>
+                <p>
+                    <strong>Solution:</strong> Dependency analysis to identify duplicate and unused packages,
+                    package consolidation to eliminate redundancy, and tree-shaking audit to ensure dead code elimination.
+                </p>
+                <p class="subsection__result">
+                    Result: 44MB — 41% reduction.
+                </p>
+            </div>
+
+            <!-- Metric bar for bundle -->
+            <div class="metric">
+                <div class="metric__label">Bundle Size</div>
+                <div class="metric__bar">
+                    <div class="metric__fill" style="width: 59%;"></div>
+                </div>
+                <div class="metric__values">
+                    <span>44MB (after)</span>
+                    <span>75MB (before)</span>
+                </div>
+            </div>
+
+            <h2>Developer Experience</h2>
+            <ul>
+                <li>Boosted test coverage from 78% to 97% with Cypress-based drag-and-drop tests</li>
+                <li>Pioneered Storybook integration for component documentation, reducing QA cycles by 50% and accelerating dark mode development</li>
+                <li>Mentored new team members and shared optimization patterns across subteams</li>
+            </ul>
+
+            <h2>Also at AWS</h2>
+            <p>
+                <strong>Amazon Bedrock — Guardrails</strong> (2024–present):
+                Designed backend logic simplification for Gen AI guardrails in the Bedrock Inference API,
+                enabling config-driven onboarding of 100+ models across modalities.
+                Decoupled Guardrails console into a separate package, cutting code review delay by 50%.
+            </p>
+            <p>
+                <strong>Amazon S3 Console</strong> (2021–2022):
+                Built Lifecycle Filters and Inventory ACLs UI. Partnered with UX team through Figma/InVision,
+                resolving 15+ design concerns. Benchmarked client-side checksum libraries (MD5, SHA256, CRC32).
+            </p>
+
+            <nav class="case-study__nav">
+                <a href="view360.html">← Previous: View360</a>
+                <a href="turtletalk.html">Next: TurtleTalk →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Heejae Kim</p>
+        </div>
+    </footer>
+
+</body>
+</html>
