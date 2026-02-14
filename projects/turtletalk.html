@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TurtleTalk — Voice-driven educational programming game published at ACM CHI 2019. Case study by Heejae Kim.">
+    <title>TurtleTalk: Voice-Driven Programming Game — Heejae Kim</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLDMVLH905"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RLDMVLH905');
+    </script>
+
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="../" class="header__name">Heejae Kim</a>
+            <nav>
+                <ul class="header__nav">
+                    <li><a href="../#work">Work</a></li>
+                    <li><a href="../#research">Research</a></li>
+                    <li><a href="../#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="case-study">
+        <div class="container">
+            <a href="../" class="case-study__back">← Back to Portfolio</a>
+
+            <h1>TurtleTalk: Voice-Driven Programming Game</h1>
+            <p class="case-study__meta">NAVER Clova AI · ACM CHI 2019</p>
+
+            <hr>
+
+            <h2>Overview</h2>
+            <p>
+                TurtleTalk is a voice-driven educational programming game that teaches children
+                foundational programming concepts — sequencing and iteration — through spoken commands.
+                The child speaks instructions like "go forward" or "turn left" to control a turtle
+                on a visual canvas, seeing their program execute in real time.
+            </p>
+            <p>
+                I designed and built the full-stack prototype. The work was published at
+                ACM CHI 2019, one of the premier venues in Human-Computer Interaction research.
+            </p>
+
+            <h2>Problem</h2>
+            <p>
+                Young children who haven't yet learned to type still benefit from early exposure
+                to computational thinking — understanding sequences of steps, repetition,
+                and cause-and-effect relationships in code. Existing programming tools for kids
+                (Scratch, Code.org) require reading, clicking, or dragging blocks, which creates
+                barriers for pre-literate or early-literate children.
+            </p>
+
+            <h2>Solution</h2>
+            <p>
+                A browser-based prototype combining three web APIs into a seamless voice-to-code loop:
+            </p>
+            <ul>
+                <li>
+                    <strong>Web Speech API</strong> for real-time voice command recognition —
+                    the child speaks naturally, and the system interprets directional
+                    and control commands.
+                </li>
+                <li>
+                    <strong>Google Translate API</strong> for multilingual support —
+                    allowing children to speak commands in their native language
+                    (Korean, English, etc.) with automatic translation to the command set.
+                </li>
+                <li>
+                    <strong>Canvas-based turtle graphics</strong> for immediate visual feedback —
+                    the turtle moves, draws, and turns on screen as commands are spoken,
+                    providing a direct link between instruction and outcome.
+                </li>
+            </ul>
+            <p>
+                The entire prototype runs in the browser with no installation required,
+                making it accessible on any device with a microphone.
+            </p>
+
+            <h2>My Role</h2>
+            <ul>
+                <li>Designed the interaction model: voice → parsed command → visual execution</li>
+                <li>Built the full-stack prototype (frontend + voice processing pipeline)</li>
+                <li>Implemented the multilingual command mapping via translation API</li>
+                <li>Designed the visual turtle graphics rendering and animation</li>
+                <li>Participated in user study design and prototype iteration</li>
+            </ul>
+
+            <h2>Impact</h2>
+            <ul>
+                <li>Published at <strong>ACM CHI 2019</strong> (Glasgow, UK) — the top venue in Human-Computer Interaction</li>
+                <li>Demonstrated that voice-based programming interfaces are viable for pre-literate children</li>
+                <li>Prototype validated through user studies with children</li>
+            </ul>
+
+            <h2>Links</h2>
+            <div class="case-study__links">
+                <a href="https://doi.org/10.1145/3290607.3312773">ACM Digital Library</a>
+            </div>
+
+            <nav class="case-study__nav">
+                <a href="aws-perf.html">← Previous: AWS Performance</a>
+                <span></span>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Heejae Kim</p>
+        </div>
+    </footer>
+
+</body>
+</html>

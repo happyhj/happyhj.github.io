@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View360 — Open source WebGL 360° viewer with custom motion sensor fusion. Case study by Heejae Kim.">
+    <title>View360: Open Source 360° Viewer — Heejae Kim</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLDMVLH905"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RLDMVLH905');
+    </script>
+
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="../" class="header__name">Heejae Kim</a>
+            <nav>
+                <ul class="header__nav">
+                    <li><a href="../#work">Work</a></li>
+                    <li><a href="../#research">Research</a></li>
+                    <li><a href="../#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="case-study">
+        <div class="container">
+            <a href="../" class="case-study__back">← Back to Portfolio</a>
+
+            <h1>View360: Open Source 360° Viewer</h1>
+            <p class="case-study__meta">NAVER · Front-End Platform · 2016–2018</p>
+
+            <hr>
+
+            <div class="case-study__hero-img">
+                <img src="../images/view360-hero.png"
+                     alt="View360 — 360 degree panorama viewer running on a mobile phone">
+            </div>
+
+            <h2>Overview</h2>
+            <p>
+                I owned this project from initial POC through production deployment and open-source release.
+                View360 is a WebGL-based 360° image and video viewer designed for NAVER's web services.
+                It renders equirectangular panorama images onto a sphere and lets users navigate by touch, mouse, keyboard, or device motion.
+            </p>
+            <p>
+                I also supported partial panorama images (from standard phone cameras) by computing the field-of-view from image dimensions and mapping them onto the correct portion of the sphere — greatly expanding the pool of usable content beyond dedicated 360° cameras.
+            </p>
+
+            <h2>Problem</h2>
+            <p>
+                NAVER services (Blog, Post, TV, Realestate) needed 360° media support, but existing web-based solutions had critical mobile UX failures:
+            </p>
+            <ul>
+                <li><strong>Magnetic sensor noise</strong> — The browser's <code>deviceorientation</code> event includes magnetometer data. Nearby electronics or metal objects caused the camera to drift randomly, even when the device was stationary on a table.</li>
+                <li><strong>Uncalibrated gyroscopes</strong> — Some Android devices ship with poorly calibrated gyroscopes, causing continuous slow rotation even when perfectly still. Searching "gyro drift" on YouTube surfaces many complaints about this.</li>
+                <li><strong>Broken orientation when lying down</strong> — VR-style direct mapping of device angles to camera angles breaks when the user is lying down or holding the phone at unusual angles. The view flips or controls become inverted.</li>
+                <li><strong>Wrong initial view</strong> — Loading the viewer while the phone is on a table always shows the floor; loading while lying down shows the ceiling. The content creator's intended "beauty shot" is never the default.</li>
+            </ul>
+
+            <h2>Solution</h2>
+
+            <h3>1. Custom Sensor Fusion</h3>
+            <p>
+                Replaced the high-level <code>deviceorientation</code> API (which includes magnetometer noise) with a custom sensor fusion implementation.
+                Using raw gyroscope and accelerometer data from the <code>devicemotion</code> API, I implemented a complementary filter that:
+            </p>
+            <ul>
+                <li>Trusts the gyroscope for short-term responsiveness (smooth, low-latency rotation tracking)</li>
+                <li>Trusts the accelerometer for long-term stability (absolute gravity reference, no accumulated drift)</li>
+                <li>Blends both using quaternion spherical interpolation (SLERP) to avoid gimbal lock artifacts from Euler angle interpolation</li>
+            </ul>
+
+            <h3>2. Gyroscope Zero-Point Calibration</h3>
+            <p>
+                Detected device-stationary moments by observing gaps in <code>deviceorientation</code> events (Android stops firing the event when the device is still).
+                During these quiet periods, the current gyroscope reading is captured as the zero-point offset and subtracted from subsequent readings — eliminating factory calibration errors.
+            </p>
+
+            <h3>3. Relative Rotation System</h3>
+            <p>
+                Instead of directly mapping device orientation to camera angles, I track frame-to-frame rotation changes in the device's own coordinate system (the axes pointing out of the screen, along the device's sides, and through its face).
+                This means the user's physical posture — sitting, lying down, or tilting — doesn't matter. Only the relative device movement drives the camera.
+            </p>
+
+            <h3>4. Cosine Correction for Tilted Body Rotation</h3>
+            <p>
+                When a user rotates their body while holding the phone at an angle (e.g., looking slightly downward while panning left), the intended full-circle rotation gets split across the device's yaw and roll axes.
+                I added cosine-weighted decomposition: extracting only the gravity-axis-parallel component of both yaw and roll changes, so the sum correctly represents the user's intended rotation regardless of tilt.
+            </p>
+
+            <h3>5. Reusable Input Library (Axes)</h3>
+            <p>
+                Extracted all input handling (touch swipe, mouse drag, keyboard, pinch zoom, device motion) into a separate library called <strong>Axes</strong>.
+                It defines N-dimensional value axes with configurable ranges, circular wrapping, bounce padding, and pluggable input types — reusable for any interactive component, not just 360° viewers.
+            </p>
+
+            <h2>Impact</h2>
+            <ul>
+                <li>531 GitHub stars, 5K+ weekly NPM downloads</li>
+                <li>Adopted by <strong>Amazon.com</strong> (automotive showroom) and <strong>Hyundai</strong></li>
+                <li>Deployed to NAVER Blog, Post, TV, and Realestate</li>
+                <li>Presented at DEVIEW 2017 (200+ attendees)</li>
+                <li>1 granted patent: "Method for Visualizing Subject Information in 360° Media"</li>
+            </ul>
+
+            <h2>Links</h2>
+            <div class="case-study__links">
+                <a href="https://github.com/naver/egjs-view360">GitHub</a>
+                <a href="https://naver.github.io/egjs-view360/">Live Demo</a>
+                <a href="https://www.npmjs.com/package/@egjs/view360">NPM</a>
+                <a href="https://deview.kr/2017/schedule/204">DEVIEW 2017 Talk</a>
+                <a href="https://tv.naver.com/v/2293107">Talk Video</a>
+                <a href="https://www.slideshare.net/slideshow/egjsview360/89040108">Slides</a>
+            </div>
+
+            <nav class="case-study__nav">
+                <span></span>
+                <a href="aws-perf.html">Next: AWS Performance →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Heejae Kim</p>
+        </div>
+    </footer>
+
+</body>
+</html>

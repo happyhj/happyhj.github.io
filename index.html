@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hee Jae Kim - Frontend Developer Portfolio">
-    <title>Hee Jae Kim - Frontend Developer</title>
-    
+    <meta name="description" content="Heejae Kim — Software Engineer. 10 years building web products at AWS and NAVER.">
+    <title>Heejae Kim — Software Engineer</title>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLDMVLH905"></script>
     <script>
@@ -14,216 +14,188 @@
         gtag('js', new Date());
         gtag('config', 'G-RLDMVLH905');
     </script>
-    
+
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+
     <!-- Header -->
     <header class="header">
-        <nav class="nav">
-            <div class="nav__logo">
-                <a href="#home">HJ</a>
-            </div>
-            <ul class="nav__menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <a href="#" class="header__name">Heejae Kim</a>
+            <button class="menu-toggle" aria-label="Toggle menu">menu</button>
+            <nav>
+                <ul class="header__nav">
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero__container">
-            <div class="hero__content">
-                <h1 class="hero__title">
-                    Hi, I'm <span class="hero__name">Hee Jae Kim</span>
-                </h1>
-                <p class="hero__subtitle">Frontend Developer</p>
-                <p class="hero__description">
-                    Interactive developer passionate about creating engaging user experiences 
-                    with modern web technologies and thoughtful design.
-                </p>
-                <div class="hero__actions">
-                    <a href="#projects" class="btn btn--primary">View Projects</a>
-                    <a href="#contact" class="btn btn--secondary">Get In Touch</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Hero -->
+    <section class="hero">
         <div class="container">
-            <h2 class="section__title">About Me</h2>
-            <div class="about__content">
-                <div class="about__text">
-                    <p>
-                        I'm a frontend developer with a passion for creating intuitive and engaging 
-                        user interfaces. I enjoy working with modern technologies to build 
-                        applications that solve real-world problems.
-                    </p>
-                    <div class="about__skills">
-                        <h3>Technologies I work with:</h3>
-                        <div class="skills__grid">
-                            <span class="skill">JavaScript</span>
-                            <span class="skill">React</span>
-                            <span class="skill">TypeScript</span>
-                            <span class="skill">Vue.js</span>
-                            <span class="skill">HTML5</span>
-                            <span class="skill">CSS3</span>
-                            <span class="skill">Node.js</span>
-                            <span class="skill">Git</span>
-                        </div>
-                    </div>
-                </div>
+            <h1>Heejae Kim</h1>
+            <p class="hero__role">Software Engineer</p>
+            <p class="hero__summary">
+                10 years building web products at AWS and NAVER.
+            </p>
+            <p class="hero__focus">Frontend performance · Interactive media · Developer tools</p>
+            <div class="hero__links">
+                <a href="https://github.com/happyhj">GitHub</a>
+                <a href="https://linkedin.com/in/heejaekm">LinkedIn</a>
+                <a href="mailto:happyhj@gmail.com">Email</a>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <hr class="container">
+
+    <!-- Selected Work -->
+    <section id="work">
         <div class="container">
-            <h2 class="section__title">Featured Projects</h2>
-            <div class="projects__grid">
-                <!-- Project 1 -->
-                <article class="project-card">
-                    <div class="project-card__image">
-                        <img src="https://via.placeholder.com/400x250?text=Project+1" alt="Project 1">
-                    </div>
-                    <div class="project-card__content">
-                        <h3 class="project-card__title">Interactive Web App</h3>
-                        <p class="project-card__description">
-                            A modern web application built with React and TypeScript, 
-                            featuring responsive design and smooth animations.
-                        </p>
-                        <div class="project-card__tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">CSS3</span>
-                        </div>
-                        <div class="project-card__links">
-                            <a href="#" class="btn btn--small">Live Demo</a>
-                            <a href="#" class="btn btn--small btn--outline">Code</a>
-                        </div>
-                    </div>
-                </article>
+            <p class="section-title">Selected Work</p>
 
-                <!-- Project 2 -->
-                <article class="project-card">
-                    <div class="project-card__image">
-                        <img src="https://via.placeholder.com/400x250?text=Project+2" alt="Project 2">
-                    </div>
-                    <div class="project-card__content">
-                        <h3 class="project-card__title">E-commerce Platform</h3>
-                        <p class="project-card__description">
-                            Full-stack e-commerce solution with modern UI/UX, 
-                            payment integration, and responsive design.
-                        </p>
-                        <div class="project-card__tech">
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                        </div>
-                        <div class="project-card__links">
-                            <a href="#" class="btn btn--small">Live Demo</a>
-                            <a href="#" class="btn btn--small btn--outline">Code</a>
-                        </div>
-                    </div>
-                </article>
+            <!-- 01 View360 -->
+            <article class="work-entry">
+                <div class="work-entry__header">
+                    <span class="work-entry__number">01</span>
+                    <h3 class="work-entry__title">View360: Open Source 360° Viewer</h3>
+                </div>
+                <p class="work-entry__meta">NAVER · 2016–2018</p>
+                <div class="work-entry__thumb">
+                    <img src="images/view360-hero.png"
+                         alt="View360 — 360 degree panorama viewer running on a mobile phone"
+                         loading="lazy">
+                </div>
+                <div class="work-entry__desc">
+                    <p>Built a WebGL-based 360° image/video viewer from scratch with custom motion sensor fusion for stable mobile experience.</p>
+                </div>
+                <p class="work-entry__impact">531 GitHub stars · 5K+ weekly NPM downloads · Adopted by Amazon.com and Hyundai</p>
+                <div class="work-entry__tags">
+                    <span class="tag">WebGL</span>
+                    <span class="tag">Motion Sensors</span>
+                    <span class="tag">Open Source</span>
+                    <span class="tag">TypeScript</span>
+                </div>
+                <div class="work-entry__link">
+                    <a href="projects/view360.html">Read more →</a>
+                </div>
+            </article>
 
-                <!-- Project 3 -->
-                <article class="project-card">
-                    <div class="project-card__image">
-                        <img src="https://via.placeholder.com/400x250?text=Project+3" alt="Project 3">
-                    </div>
-                    <div class="project-card__content">
-                        <h3 class="project-card__title">Data Visualization Tool</h3>
-                        <p class="project-card__description">
-                            Interactive dashboard for data visualization with 
-                            D3.js charts and real-time updates.
-                        </p>
-                        <div class="project-card__tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">D3.js</span>
-                            <span class="tech-tag">API</span>
-                        </div>
-                        <div class="project-card__links">
-                            <a href="#" class="btn btn--small">Live Demo</a>
-                            <a href="#" class="btn btn--small btn--outline">Code</a>
-                        </div>
-                    </div>
-                </article>
+            <!-- 02 AWS Performance -->
+            <article class="work-entry">
+                <div class="work-entry__header">
+                    <span class="work-entry__number">02</span>
+                    <h3 class="work-entry__title">Frontend Performance at AWS</h3>
+                </div>
+                <p class="work-entry__meta">AWS · 2021–2024</p>
+                <div class="work-entry__desc">
+                    <p>Systematic performance optimization across SageMaker Data Wrangler, SageMaker Canvas, and S3 Console.</p>
+                </div>
+                <p class="work-entry__impact">97% render time reduction · 41% bundle size cut · 71% response time improvement</p>
+                <div class="work-entry__tags">
+                    <span class="tag">React</span>
+                    <span class="tag">Performance</span>
+                    <span class="tag">D3</span>
+                    <span class="tag">IntersectionObserver</span>
+                </div>
+                <div class="work-entry__link">
+                    <a href="projects/aws-perf.html">Read more →</a>
+                </div>
+            </article>
 
-                <!-- Project 4 -->
-                <article class="project-card">
-                    <div class="project-card__image">
-                        <img src="https://via.placeholder.com/400x250?text=Project+4" alt="Project 4">
-                    </div>
-                    <div class="project-card__content">
-                        <h3 class="project-card__title">Mobile-First Web App</h3>
-                        <p class="project-card__description">
-                            Progressive Web App with offline capabilities, 
-                            push notifications, and native-like experience.
-                        </p>
-                        <div class="project-card__tech">
-                            <span class="tech-tag">PWA</span>
-                            <span class="tech-tag">Service Worker</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="project-card__links">
-                            <a href="#" class="btn btn--small">Live Demo</a>
-                            <a href="#" class="btn btn--small btn--outline">Code</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 5 -->
-                <article class="project-card">
-                    <div class="project-card__image">
-                        <img src="https://via.placeholder.com/400x250?text=Project+5" alt="Project 5">
-                    </div>
-                    <div class="project-card__content">
-                        <h3 class="project-card__title">Design System</h3>
-                        <p class="project-card__description">
-                            Comprehensive design system with reusable components, 
-                            documentation, and consistent design tokens.
-                        </p>
-                        <div class="project-card__tech">
-                            <span class="tech-tag">Storybook</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">Documentation</span>
-                        </div>
-                        <div class="project-card__links">
-                            <a href="#" class="btn btn--small">Live Demo</a>
-                            <a href="#" class="btn btn--small btn--outline">Code</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
+            <!-- 03 TurtleTalk -->
+            <article class="work-entry">
+                <div class="work-entry__header">
+                    <span class="work-entry__number">03</span>
+                    <h3 class="work-entry__title">TurtleTalk: Voice-Driven Programming Game</h3>
+                </div>
+                <p class="work-entry__meta">NAVER · ACM CHI 2019</p>
+                <div class="work-entry__desc">
+                    <p>Full-stack browser prototype teaching kids programming through voice commands and visual turtle graphics.</p>
+                </div>
+                <p class="work-entry__impact">Published at ACM CHI 2019</p>
+                <div class="work-entry__tags">
+                    <span class="tag">Web Speech API</span>
+                    <span class="tag">Machine Translation</span>
+                    <span class="tag">HCI</span>
+                </div>
+                <div class="work-entry__link">
+                    <a href="projects/turtletalk.html">Read more →</a>
+                </div>
+            </article>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <hr class="container">
+
+    <!-- Research & Patents -->
+    <section id="research">
+        <div class="container">
+            <p class="section-title">Research &amp; Patents</p>
+
+            <ul class="research-list">
+                <li class="research-item">
+                    <div class="research-item__info">
+                        <div class="research-item__title">Dimensional Alt Text</div>
+                        <p class="research-item__desc">
+                            Co-authored study enhancing spatial understanding for screen readers with layered image descriptions.
+                        </p>
+                        <div class="research-item__links">
+                            <a href="https://doi.org/10.1145/3544548.3581431">Paper →</a>
+                        </div>
+                    </div>
+                    <span class="research-item__venue">ACM CHI 2023</span>
+                </li>
+
+                <li class="research-item">
+                    <div class="research-item__info">
+                        <div class="research-item__title">TurtleTalk: Voice-Driven Educational Programming Game</div>
+                        <p class="research-item__desc">
+                            Designed and built a full-stack prototype integrating voice UI and machine translation for programming education.
+                        </p>
+                        <div class="research-item__links">
+                            <a href="https://doi.org/10.1145/3290607.3312773">Paper →</a>
+                            <a href="projects/turtletalk.html">Case Study →</a>
+                        </div>
+                    </div>
+                    <span class="research-item__venue">ACM CHI 2019</span>
+                </li>
+
+                <li class="research-item">
+                    <div class="research-item__info">
+                        <div class="research-item__title">Patent: Method for Visualizing Subject Information in 360° Media</div>
+                        <p class="research-item__desc">
+                            360° image object detection with radar-style bird's-eye minimap. Originated from NAVER Hackday 1st place win.
+                        </p>
+                    </div>
+                    <span class="research-item__venue">Granted, 2019</span>
+                </li>
+
+                <li class="research-item">
+                    <div class="research-item__info">
+                        <div class="research-item__title">Patent: Contents Sharing Method, Contents Sharing Server</div>
+                    </div>
+                    <span class="research-item__venue">Filed, 2017</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <hr class="container">
+
+    <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section__title">Get In Touch</h2>
-            <div class="contact__content">
-                <p class="contact__description">
-                    I'm always interested in hearing about new opportunities and interesting projects.
-                </p>
-                <div class="contact__links">
-                    <a href="mailto:happyhj@gmail.com" class="contact__link">
-                        <span>Email</span>
-                    </a>
-                    <a href="https://github.com/happyhj" class="contact__link">
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/kim-hee-jae-76755990" class="contact__link">
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
+            <p class="section-title">Contact</p>
+            <p class="contact__note">Currently seeking opportunities in the Seattle area.</p>
+            <div class="contact__links">
+                <a href="mailto:happyhj@gmail.com">happyhj@gmail.com</a>
+                <a href="https://github.com/happyhj">GitHub</a>
+                <a href="https://linkedin.com/in/heejaekm">LinkedIn</a>
             </div>
         </div>
     </section>
@@ -231,7 +203,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Hee Jae Kim. Built with passion.</p>
+            <p>&copy; 2025 Heejae Kim</p>
         </div>
     </footer>
 
