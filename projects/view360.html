@@ -30,17 +30,10 @@
 
             <hr>
 
-            <!-- Tabs -->
-            <div class="tabs">
-                <button class="tabs__btn tabs__btn--active" data-tab="open-source-journey">Open Source Journey</button>
-                <button class="tabs__btn" data-tab="renderer-fusion">Renderer &amp; Fusion</button>
-                <button class="tabs__btn" data-tab="sensor-telemetry">Sensor Telemetry Viz</button>
-            </div>
-
             <!-- ════════════════════════════════════════════ -->
             <!-- Open Source Release & Adoption               -->
             <!-- ════════════════════════════════════════════ -->
-            <div id="open-source-journey" class="tab-panel tab-panel--active">
+            <section id="open-source-journey" class="cs-section">
 
                 <div class="tldr">
                     <p>
@@ -183,12 +176,12 @@
                     <a href="https://www.slideshare.net/slideshow/egjsview360/89040108">Slides (KR)</a>
                     <a href="https://m.ddaily.co.kr/page/view/2017101621423425057">Press Coverage</a>
                 </div>
-            </div>
+            </section>
 
             <!-- ════════════════════════════════════════════ -->
             <!-- WebGL 360° Renderer + Sensor Fusion          -->
             <!-- ════════════════════════════════════════════ -->
-            <div id="renderer-fusion" class="tab-panel">
+            <section id="renderer-fusion" class="cs-section">
 
                 <div class="case-study__hero-img">
                     <img src="../images/view360/demo.gif"
@@ -305,12 +298,12 @@
                     <a href="https://tv.naver.com/v/2293107">Talk Video</a>
                     <a href="https://www.slideshare.net/slideshow/egjsview360/89040108">Slides</a>
                 </div>
-            </div>
+            </section>
 
             <!-- ════════════════════════════════════════════ -->
             <!-- Real-Time Sensor Telemetry Viz               -->
             <!-- ════════════════════════════════════════════ -->
-            <div id="sensor-telemetry" class="tab-panel">
+            <section id="sensor-telemetry" class="cs-section">
 
                 <div class="case-study__hero-img">
                     <video autoplay muted loop playsinline>
@@ -360,7 +353,7 @@
                     <span class="metrics-strip__item">Multi-channel waveform display</span>
                     <span class="metrics-strip__item">Zero-rebuild parameter tuning</span>
                 </div>
-            </div>
+            </section>
 
             <nav class="case-study__nav">
                 <span></span>
@@ -368,6 +361,22 @@
             </nav>
         </div>
     </main>
+
+    <!-- Floating Case Study Nav -->
+    <nav class="floating-nav" aria-label="Case studies">
+        <a href="#open-source-journey" class="floating-nav__item floating-nav__item--active">
+            <img src="../images/view360/adopters.png" alt="" class="floating-nav__img">
+            <span class="floating-nav__label">Open Source Journey</span>
+        </a>
+        <a href="#renderer-fusion" class="floating-nav__item">
+            <img src="../images/view360/demo.gif" alt="" class="floating-nav__img">
+            <span class="floating-nav__label">Renderer &amp; Fusion</span>
+        </a>
+        <a href="#sensor-telemetry" class="floating-nav__item">
+            <img src="../images/sensor-fusion/arch.svg" alt="" class="floating-nav__img">
+            <span class="floating-nav__label">Sensor Telemetry Viz</span>
+        </a>
+    </nav>
 
     <footer class="footer">
         <div class="container">

@@ -30,16 +30,10 @@
 
             <hr>
 
-            <!-- Tabs -->
-            <div class="tabs">
-                <button class="tabs__btn tabs__btn--active" data-tab="performance-engineering">Performance Engineering</button>
-                <button class="tabs__btn" data-tab="canvas-migration">Canvas Migration E2E</button>
-            </div>
-
             <!-- ════════════════════════════════════════════ -->
             <!-- CS1: Performance Engineering at Scale        -->
             <!-- ════════════════════════════════════════════ -->
-            <div id="performance-engineering" class="tab-panel tab-panel--active">
+            <section id="performance-engineering" class="cs-section">
 
                 <div class="case-study__hero-img">
                     <img src="../images/aws/perf-hero.svg"
@@ -201,12 +195,12 @@
                     AWS console screenshots cannot be shared. All results are presented through
                     metric-based infographics and methodology diagrams.
                 </p>
-            </div>
+            </section>
 
             <!-- ════════════════════════════════════════════ -->
             <!-- CS2: SageMaker Canvas Migration E2E          -->
             <!-- ════════════════════════════════════════════ -->
-            <div id="canvas-migration" class="tab-panel">
+            <section id="canvas-migration" class="cs-section">
 
                 <div class="tldr">
                     <p>
@@ -272,7 +266,7 @@
                     <span class="metrics-strip__item">50%↓ QA cycle</span>
                     <span class="metrics-strip__item">30%↑ UI dev speed</span>
                 </div>
-            </div>
+            </section>
 
             <nav class="case-study__nav">
                 <a href="view360.html">← Previous: View360</a>
@@ -280,6 +274,18 @@
             </nav>
         </div>
     </main>
+
+    <!-- Floating Case Study Nav -->
+    <nav class="floating-nav" aria-label="Case studies">
+        <a href="#performance-engineering" class="floating-nav__item floating-nav__item--active">
+            <img src="../images/aws/perf-hero.svg" alt="" class="floating-nav__img">
+            <span class="floating-nav__label">Performance Engineering</span>
+        </a>
+        <a href="#canvas-migration" class="floating-nav__item">
+            <img src="../images/aws/migration-scope.svg" alt="" class="floating-nav__img">
+            <span class="floating-nav__label">Canvas Migration E2E</span>
+        </a>
+    </nav>
 
     <footer class="footer">
         <div class="container">
