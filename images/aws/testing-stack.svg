@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" width="640" height="280">
+  <rect width="640" height="280" fill="#f7f7f7"/>
+
+  <!-- Title -->
+  <text x="320" y="22" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#888">Testing Pyramid</text>
+
+  <!-- Pyramid shape using trapezoids -->
+
+  <!-- Bottom layer: Unit Tests (widest) -->
+  <polygon points="100,240 540,240 480,175 160,175" fill="#fff" stroke="#111" stroke-width="1"/>
+  <text x="320" y="200" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="600" fill="#111">Unit Tests</text>
+  <text x="320" y="218" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#1a5276">Coverage: 78% --> 97%</text>
+  <text x="320" y="234" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">Jest + React Testing Library</text>
+
+  <!-- Middle layer: Cypress E2E -->
+  <polygon points="160,170 480,170 420,105 200,105" fill="#fff" stroke="#111" stroke-width="1"/>
+  <text x="320" y="132" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="600" fill="#111">Cypress E2E</text>
+  <text x="320" y="150" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#1a5276">Drag and Drop Tested</text>
+  <text x="320" y="165" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">Custom commands for complex interactions</text>
+
+  <!-- Top layer: Storybook Visual (narrowest) -->
+  <polygon points="200,100 420,100 370,45 250,45" fill="#1a5276" stroke="#111" stroke-width="1"/>
+  <text x="310" y="68" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="13" font-weight="600" fill="#fff">Storybook Visual</text>
+  <text x="310" y="85" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="10" fill="#fff" opacity="0.8">Component Docs</text>
+
+  <!-- Side annotations -->
+  <line x1="555" y1="207" x2="585" y2="207" stroke="#ddd" stroke-width="1"/>
+  <text x="590" y="211" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">Most</text>
+
+  <line x1="555" y1="137" x2="585" y2="137" stroke="#ddd" stroke-width="1"/>
+
+  <line x1="555" y1="72" x2="585" y2="72" stroke="#ddd" stroke-width="1"/>
+  <text x="590" y="76" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">Fewest</text>
+
+  <!-- Vertical annotation line -->
+  <line x1="570" y1="72" x2="570" y2="207" stroke="#ddd" stroke-width="1"/>
+  <polygon points="570,207 566,199 574,199" fill="#ddd"/>
+
+  <!-- Volume label -->
+  <text x="570" y="260" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888" transform="rotate(-90,600,150)">Test Volume</text>
+</svg>

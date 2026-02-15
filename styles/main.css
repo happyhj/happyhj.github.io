@@ -90,36 +90,41 @@ li {
 }
 
 .hero__inner {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--sp-8);
-  flex-wrap: wrap;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .hero h1 {
   font-size: var(--text-3xl);
-  margin-bottom: var(--sp-1);
+  margin-bottom: var(--sp-2);
 }
 
 .hero__role {
   font-family: var(--font-mono);
   font-size: var(--text-base);
   color: var(--color-text-muted);
-  margin-bottom: 0;
+  margin-bottom: var(--sp-4);
 }
 
-.hero__summary {
-  font-size: var(--text-base);
+.hero__tagline {
+  font-size: var(--text-lg);
   color: var(--color-text-secondary);
-  margin-bottom: var(--sp-1);
+  margin-bottom: var(--sp-4);
+  line-height: 1.5;
 }
 
-.hero__focus {
+.hero__stack {
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
   color: var(--color-text-muted);
-  font-family: var(--font-mono);
   margin-bottom: var(--sp-3);
+}
+
+.hero__differentiators {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  margin-bottom: var(--sp-4);
 }
 
 .hero__links {
@@ -147,14 +152,14 @@ section {
   margin-bottom: var(--sp-8);
 }
 
-/* ── Work Section (above-the-fold grid) ── */
+/* ── Work Section (2-col grid) ── */
 .work-section {
   padding: var(--sp-8) 0 var(--sp-12);
 }
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--sp-6);
 }
 
@@ -191,7 +196,7 @@ section {
 }
 
 .work-card__body {
-  padding: var(--sp-4);
+  padding: var(--sp-4) var(--sp-6);
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -226,7 +231,6 @@ section {
   margin-bottom: var(--sp-3);
   line-height: 1.5;
   flex: 1;
-  display: none;
 }
 
 .work-card__impact {
@@ -241,6 +245,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-1);
+  margin-bottom: var(--sp-3);
 }
 
 .tag {
@@ -249,6 +254,119 @@ section {
   color: var(--color-text-muted);
   border: 1px solid var(--color-border);
   padding: var(--sp-1) var(--sp-2);
+}
+
+.tag--pillar {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.work-card__more {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-link);
+}
+
+/* ── Career Arc Timeline ── */
+.career-arc {
+  padding: var(--sp-12) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.career-arc__track {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding-top: var(--sp-8);
+}
+
+.career-arc__track::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.career-arc__node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.career-arc__node::before {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--sp-8) - 4px);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-text);
+  border: 2px solid var(--color-bg);
+  box-shadow: 0 0 0 1px var(--color-text);
+}
+
+.career-arc__year {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text);
+  font-weight: 600;
+  margin-bottom: var(--sp-1);
+}
+
+.career-arc__company {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--sp-1);
+}
+
+.career-arc__label {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.3;
+}
+
+.career-arc__domain {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  margin-top: var(--sp-1);
+}
+
+/* ── Key Numbers Strip ── */
+.key-numbers {
+  padding: var(--sp-12) 0;
+  background: var(--color-bg-alt);
+}
+
+.key-numbers__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-6);
+  text-align: center;
+}
+
+.key-number__value {
+  font-family: var(--font-mono);
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1;
+  margin-bottom: var(--sp-2);
+}
+
+.key-number__label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.3;
 }
 
 /* ── Research & Patents ── */
@@ -262,12 +380,27 @@ section {
   padding: var(--sp-4) 0;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: var(--sp-4);
 }
 
 .research-item:last-child {
   border-bottom: 1px solid var(--color-border);
+}
+
+.research-item__logo {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.research-item__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .research-item__info {
@@ -378,6 +511,35 @@ section {
   display: block;
 }
 
+.case-study__hero-img iframe {
+  max-width: 100%;
+  border: 1px solid var(--color-border);
+  display: block;
+}
+
+.case-study__hero-img--no-border img {
+  border: none;
+}
+
+/* Two-column: text left + image right */
+.case-study__two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin: 1.5rem 0;
+}
+
+.case-study__two-col .case-study__hero-img {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .case-study__two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
 .case-study h2 {
   font-size: var(--text-xl);
   margin-top: var(--sp-12);
@@ -417,6 +579,77 @@ section {
   font-size: var(--text-sm);
 }
 
+/* ── Tab UI for case study pages ── */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--sp-8);
+  overflow-x: auto;
+}
+
+.tabs__btn {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  background: none;
+  border: none;
+  padding: var(--sp-3) var(--sp-4);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tabs__btn:hover {
+  color: var(--color-text);
+}
+
+.tabs__btn--active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-accent);
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel--active {
+  display: block;
+}
+
+/* ── TL;DR block ── */
+.tldr {
+  border-left: 3px solid var(--color-accent);
+  padding: var(--sp-3) var(--sp-4);
+  margin-bottom: var(--sp-8);
+  background: var(--color-bg-alt);
+}
+
+.tldr p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+/* ── Key Metrics inline strip ── */
+.metrics-strip {
+  display: flex;
+  gap: var(--sp-6);
+  flex-wrap: wrap;
+  padding: var(--sp-4) 0;
+  margin: var(--sp-8) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.metrics-strip__item {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+
 /* ── Metric bar (CSS-only before/after) ── */
 .metric {
   margin-bottom: var(--sp-6);
@@ -439,6 +672,7 @@ section {
 .metric__fill {
   height: 100%;
   background: var(--color-text);
+  transition: width 0.8s ease-out;
 }
 
 .metric__values {
@@ -489,23 +723,95 @@ section {
   margin-top: var(--sp-3);
 }
 
+/* ── Placeholder for missing assets ── */
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-alt);
+  border: 1px dashed var(--color-border);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  padding: var(--sp-8);
+  min-height: 200px;
+}
+
+/* ── SVG diagram container ── */
+.diagram {
+  margin: var(--sp-6) 0;
+  text-align: center;
+}
+
+.diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.diagram__caption {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--sp-2);
+}
+
+/* ── Timeline (for Open Source journey etc.) ── */
+.timeline {
+  list-style: none;
+  padding: 0;
+  border-left: 1px solid var(--color-border);
+  margin-left: var(--sp-4);
+}
+
+.timeline__item {
+  padding: 0 0 var(--sp-6) var(--sp-6);
+  position: relative;
+}
+
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-text);
+  border: 2px solid var(--color-bg);
+  box-shadow: 0 0 0 1px var(--color-border);
+}
+
+.timeline__date {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--sp-1);
+}
+
+.timeline__text {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .work-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .key-numbers__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: var(--text-xl);
   }
 
-  .work-card__desc {
-    display: block;
+  .key-numbers__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-4);
   }
 }
 
 @media (max-width: 640px) {
-  .hero__inner {
-    flex-direction: column;
-    gap: var(--sp-4);
-  }
-
   .hero h1 {
     font-size: var(--text-2xl);
   }
@@ -518,10 +824,50 @@ section {
     flex-direction: column;
     gap: var(--sp-1);
   }
-}
 
-@media (max-width: 768px) {
-  h2 {
-    font-size: var(--text-xl);
+  /* Career Arc: vertical on mobile */
+  .career-arc__track {
+    flex-direction: column;
+    padding-top: 0;
+    padding-left: var(--sp-8);
+    gap: var(--sp-6);
+  }
+
+  .career-arc__track::before {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+
+  .career-arc__node {
+    align-items: flex-start;
+    text-align: left;
+    flex: none;
+  }
+
+  .career-arc__node::before {
+    top: 4px;
+    left: calc(-1 * var(--sp-8) - 4px);
+  }
+
+  .key-numbers__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tabs {
+    gap: 0;
+  }
+
+  .tabs__btn {
+    padding: var(--sp-2) var(--sp-3);
+    font-size: var(--text-xs);
+  }
+
+  .metrics-strip {
+    flex-direction: column;
+    gap: var(--sp-2);
   }
 }

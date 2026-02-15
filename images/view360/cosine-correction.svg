@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" width="640" height="280">
+  <rect width="640" height="280" fill="#f7f7f7"/>
+
+  <!-- Divider -->
+  <line x1="310" y1="30" x2="310" y2="260" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Left side: Tilted phone -->
+  <text x="155" y="30" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="13" font-weight="600" fill="#111">Tilted Device</text>
+
+  <!-- Phone body (tilted) -->
+  <g transform="translate(120,140) rotate(-25)">
+    <rect x="-25" y="-50" width="50" height="90" rx="4" fill="#fff" stroke="#111" stroke-width="1"/>
+    <rect x="-20" y="-45" width="40" height="70" fill="#f7f7f7" stroke="#ddd" stroke-width="0.5"/>
+    <rect x="-8" y="-48" width="16" height="3" rx="1" fill="#ddd"/>
+  </g>
+
+  <!-- Yaw axis arrow (vertical, around gravity) -->
+  <path d="M120,65 A20,20 0 0,1 140,85" fill="none" stroke="#1a5276" stroke-width="2"/>
+  <polygon points="140,85 136,77 143,80" fill="#1a5276"/>
+  <text x="155" y="72" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" font-weight="600" fill="#1a5276">yaw</text>
+
+  <!-- Roll axis arrow -->
+  <path d="M80,165 A15,15 0 0,1 95,180" fill="none" stroke="#1a5276" stroke-width="2"/>
+  <polygon points="95,180 88,177 91,183" fill="#1a5276"/>
+  <text x="62" y="185" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" font-weight="600" fill="#1a5276">roll</text>
+
+  <!-- Tilt angle indicator -->
+  <line x1="120" y1="210" x2="120" y2="140" stroke="#ddd" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="120" y1="210" x2="100" y2="145" stroke="#888" stroke-width="1" stroke-dasharray="2,2"/>
+  <path d="M120,175 A35,35 0 0,0 111,165" fill="none" stroke="#888" stroke-width="1"/>
+  <text x="105" y="195" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="10" fill="#888">theta</text>
+
+  <!-- Right side: Vector decomposition -->
+  <text x="475" y="30" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="13" font-weight="600" fill="#111">Cosine Decomposition</text>
+
+  <!-- Gravity vector (vertical) -->
+  <line x1="400" y1="60" x2="400" y2="220" stroke="#111" stroke-width="2"/>
+  <polygon points="400,220 395,210 405,210" fill="#111"/>
+  <text x="410" y="225" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#111">g</text>
+
+  <!-- Device axis (tilted) -->
+  <line x1="400" y1="120" x2="540" y2="175" stroke="#1a5276" stroke-width="2"/>
+  <polygon points="540,175 530,170 533,178" fill="#1a5276"/>
+  <text x="545" y="178" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#1a5276">device axis</text>
+
+  <!-- Cos(theta) projection line -->
+  <line x1="400" y1="120" x2="400" y2="175" stroke="#1a5276" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="380" y="150" text-anchor="end" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#1a5276">cos(theta)</text>
+
+  <!-- Horizontal projection -->
+  <line x1="400" y1="175" x2="540" y2="175" stroke="#888" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="470" y="192" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="10" fill="#888">sin(theta)</text>
+
+  <!-- Angle arc -->
+  <path d="M400,145 A25,25 0 0,1 415,152" fill="none" stroke="#111" stroke-width="1"/>
+  <text x="420" y="142" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="10" fill="#111">theta</text>
+
+  <!-- Right angle marker -->
+  <rect x="400" y="167" width="8" height="8" fill="none" stroke="#888" stroke-width="0.5"/>
+
+  <!-- Formula box -->
+  <rect x="370" y="230" width="210" height="35" rx="2" fill="#fff" stroke="#111" stroke-width="1"/>
+  <text x="475" y="252" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#111">yaw_corrected = yaw * cos(theta)</text>
+
+  <!-- Bottom label -->
+  <text x="320" y="275" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#888">Only gravity-axis-parallel component used</text>
+</svg>

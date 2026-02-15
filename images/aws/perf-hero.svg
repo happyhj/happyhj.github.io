@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320">
+  <rect width="640" height="320" fill="#f7f7f7"/>
+
+  <!-- Title -->
+  <text x="320" y="30" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="600" fill="#111">Performance Optimization Results</text>
+
+  <!-- Bar 1: Render Time -->
+  <text x="30" y="72" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#111">Render Time</text>
+  <!-- Before bar (full width = represents 10.5s) -->
+  <rect x="160" y="58" width="420" height="24" rx="2" fill="#ddd" stroke="none"/>
+  <!-- After bar (0.4s / 10.5s * 420 = ~16px) -->
+  <rect x="160" y="58" width="16" height="24" rx="2" fill="#111"/>
+  <text x="590" y="75" text-anchor="end" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#1a5276" font-weight="600">97% down</text>
+  <text x="160" y="98" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="10" fill="#888">10.5s --> 0.4s</text>
+
+  <!-- Bar 2: Response -->
+  <text x="30" y="137" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#111">Response</text>
+  <rect x="160" y="123" width="420" height="24" rx="2" fill="#ddd" stroke="none"/>
+  <!-- After: 0.8/2.8 * 420 = 120 -->
+  <rect x="160" y="123" width="120" height="24" rx="2" fill="#111"/>
+  <text x="590" y="140" text-anchor="end" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#1a5276" font-weight="600">71% down</text>
+  <text x="160" y="163" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="10" fill="#888">2.8s --> 0.8s</text>
+
+  <!-- Bar 3: Bundle -->
+  <text x="30" y="202" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#111">Bundle Size</text>
+  <rect x="160" y="188" width="420" height="24" rx="2" fill="#ddd" stroke="none"/>
+  <!-- After: 44/75 * 420 = 246 -->
+  <rect x="160" y="188" width="246" height="24" rx="2" fill="#111"/>
+  <text x="590" y="205" text-anchor="end" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#1a5276" font-weight="600">41% down</text>
+  <text x="160" y="228" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="10" fill="#888">75MB --> 44MB</text>
+
+  <!-- Bar 4: API Calls -->
+  <text x="30" y="267" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#111">API Calls</text>
+  <rect x="160" y="253" width="420" height="24" rx="2" fill="#ddd" stroke="none"/>
+  <!-- After: 11% remaining => 46px -->
+  <rect x="160" y="253" width="46" height="24" rx="2" fill="#111"/>
+  <text x="590" y="270" text-anchor="end" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#1a5276" font-weight="600">89% down</text>
+  <text x="160" y="293" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="10" fill="#888">Redundant calls eliminated</text>
+
+  <!-- Legend -->
+  <rect x="400" y="300" width="14" height="10" fill="#111"/>
+  <text x="420" y="309" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">After</text>
+  <rect x="470" y="300" width="14" height="10" fill="#ddd"/>
+  <text x="490" y="309" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">Eliminated</text>
+</svg>
