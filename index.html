@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Heejae Kim — Frontend-Leaning Fullstack Engineer. 10 years at AWS and NAVER, from WebGL renderers to Gen AI pipelines.">
-    <title>Heejae Kim — Frontend-Leaning Fullstack Engineer</title>
+    <meta name="description" content="Heejae Kim — Frontend Engineer who ships complex UIs at global scale. 10 years at AWS and NAVER.">
+    <title>Heejae Kim — Frontend Engineer</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Heejae Kim — Frontend Engineer">
+    <meta property="og:description" content="10 years building fast, interactive software at AWS and NAVER. 3 patents, 2 ACM CHI papers, 531-star open source.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://happyhj.github.io/">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLDMVLH905"></script>
@@ -19,30 +25,25 @@
 </head>
 <body>
 
-    <!-- Hero (compact) -->
+    <!-- Hero -->
     <section class="hero">
-        <div class="container container--wide">
+        <div class="container">
             <div class="hero__inner">
-                <div>
-                    <h1>Heejae Kim</h1>
-                    <p class="hero__role">Frontend-Leaning Fullstack Engineer</p>
-                </div>
-                <div>
-                    <p class="hero__summary">
-                        I build fast, interactive software where real-world data meets human judgment.
-                    </p>
-                    <p class="hero__focus">10 years at AWS and NAVER · From WebGL renderers to Gen AI pipelines</p>
-                    <div class="hero__links">
-                        <a href="https://github.com/happyhj">GitHub</a>
-                        <a href="https://linkedin.com/in/heejaekm">LinkedIn</a>
-                        <a href="mailto:happyhj@gmail.com">Email</a>
-                    </div>
+                <h1>Heejae Kim</h1>
+                <p class="hero__role">Frontend Engineer</p>
+                <p class="hero__tagline">who ships complex UIs at global scale.</p>
+                <p class="hero__stack">10 years · AWS · NAVER<br>React · TypeScript · WebGL · D3</p>
+                <p class="hero__differentiators">3 patents · 2 ACM CHI papers · 531&#9733; open source</p>
+                <div class="hero__links">
+                    <a href="https://github.com/happyhj">GitHub</a>
+                    <a href="https://linkedin.com/in/heejaekm">LinkedIn</a>
+                    <a href="mailto:happyhj@gmail.com">Email</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Selected Work — 3-column grid -->
+    <!-- Selected Work — 2-column grid -->
     <section id="work" class="work-section">
         <div class="container container--wide">
             <p class="section-title">Selected Work</p>
@@ -51,75 +52,157 @@
                 <!-- 01 View360 -->
                 <article class="work-card">
                     <a href="projects/view360.html" class="work-card__thumb">
-                        <img src="images/view360-hero.png"
-                             alt="View360 — 360 degree panorama viewer running on a mobile phone"
+                        <img src="images/view360/demo.gif"
+                             alt="View360 — interactive 360 degree panorama viewer demo"
                              loading="lazy">
                     </a>
                     <div class="work-card__body">
-                        <h3 class="work-card__title"><a href="projects/view360.html">View360: Open Source 360° Viewer</a></h3>
-                        <p class="work-card__meta">NAVER · 2016–2018</p>
+                        <h3 class="work-card__title"><a href="projects/view360.html">View360: 360° Viewer &amp; Sensor Fusion Engine</a></h3>
+                        <p class="work-card__meta">NAVER · 2015–2018</p>
                         <p class="work-card__desc">Built a WebGL-based 360° image/video viewer from scratch with custom motion sensor fusion for stable mobile experience.</p>
-                        <p class="work-card__impact">531 GitHub stars · Adopted by Amazon.com and Hyundai</p>
+                        <p class="work-card__impact">531&#9733; GitHub · Amazon.com &amp; Hyundai adopted · 1 patent granted</p>
                         <div class="work-card__tags">
-                            <span class="tag">WebGL</span>
-                            <span class="tag">Open Source</span>
-                            <span class="tag">Motion Sensors</span>
+                            <span class="tag tag--pillar">#Data-Intensive</span>
+                            <span class="tag tag--pillar">#Open-Source</span>
                         </div>
+                        <a href="projects/view360.html" class="work-card__more">3 case studies →</a>
                     </div>
                 </article>
 
-                <!-- 02 AWS Performance -->
+                <!-- 02 AWS -->
                 <article class="work-card">
-                    <div class="work-card__thumb work-card__thumb--placeholder">
-                        <span class="work-card__icon">⚡</span>
-                    </div>
+                    <a href="projects/aws.html" class="work-card__thumb">
+                        <img src="images/aws/perf-hero.svg"
+                             alt="AWS performance metrics: 97% render reduction, 41% bundle cut"
+                             loading="lazy">
+                    </a>
                     <div class="work-card__body">
-                        <h3 class="work-card__title"><a href="projects/aws-perf.html">Frontend Performance at AWS</a></h3>
+                        <h3 class="work-card__title"><a href="projects/aws.html">Frontend at AWS: S3 · SageMaker · Canvas</a></h3>
                         <p class="work-card__meta">AWS · 2021–2024</p>
-                        <p class="work-card__desc">Systematic performance optimization across SageMaker Data Wrangler, SageMaker Canvas, and S3 Console.</p>
-                        <p class="work-card__impact">97% render time reduction · 41% bundle size cut</p>
+                        <p class="work-card__desc">Systematic React profiling and optimization across 3 AWS console products. Led full migration of Data Wrangler into SageMaker Canvas.</p>
+                        <p class="work-card__impact">97% render ↓ · 41% bundle ↓ · 89% API calls ↓</p>
                         <div class="work-card__tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Performance</span>
-                            <span class="tag">D3</span>
+                            <span class="tag tag--pillar">#Data-Intensive</span>
+                            <span class="tag tag--pillar">#E2E-Ownership</span>
                         </div>
+                        <a href="projects/aws.html" class="work-card__more">2 case studies →</a>
                     </div>
                 </article>
 
                 <!-- 03 Bedrock Guardrails -->
                 <article class="work-card">
-                    <div class="work-card__thumb work-card__thumb--placeholder">
-                        <span class="work-card__icon">🛡</span>
-                    </div>
+                    <a href="projects/bedrock.html" class="work-card__thumb">
+                        <img src="images/bedrock/system.svg"
+                             alt="Guardrails for Bedrock — config-driven architecture"
+                             loading="lazy">
+                    </a>
                     <div class="work-card__body">
-                        <h3 class="work-card__title"><a href="projects/bedrock-guardrails.html">Guardrails for Amazon Bedrock</a></h3>
+                        <h3 class="work-card__title"><a href="projects/bedrock.html">Guardrails for Amazon Bedrock</a></h3>
                         <p class="work-card__meta">AWS · 2024–present</p>
-                        <p class="work-card__desc">Redesigned model onboarding from 3-week manual process to config-driven system, enabling 100+ models across modalities for re:Invent 2024 launch.</p>
-                        <p class="work-card__impact">100+ models onboarded · Zero-regression launch</p>
+                        <p class="work-card__desc">Redesigned model onboarding from 3-week custom code to config-driven system. Decoupled console for independent release cycles.</p>
+                        <p class="work-card__impact">100+ models · Zero-regression re:Invent launch</p>
                         <div class="work-card__tags">
-                            <span class="tag">Gen AI</span>
-                            <span class="tag">System Design</span>
-                            <span class="tag">API</span>
+                            <span class="tag tag--pillar">#E2E-Ownership</span>
                         </div>
+                        <a href="projects/bedrock.html" class="work-card__more">2 case studies →</a>
                     </div>
                 </article>
 
-                <!-- 04 TurtleTalk -->
+                <!-- 04 HCI Research -->
                 <article class="work-card">
                     <div class="work-card__thumb work-card__thumb--placeholder">
-                        <span class="work-card__icon">🐢</span>
+                        <span class="work-card__icon">🔬</span>
                     </div>
                     <div class="work-card__body">
-                        <h3 class="work-card__title"><a href="projects/turtletalk.html">TurtleTalk: Voice-Driven Programming Game</a></h3>
-                        <p class="work-card__meta">NAVER · ACM CHI 2019</p>
-                        <p class="work-card__desc">Full-stack browser prototype teaching kids programming through voice commands and visual turtle graphics.</p>
-                        <p class="work-card__impact">Published at ACM CHI 2019</p>
+                        <h3 class="work-card__title"><a href="projects/research.html">HCI Research: Voice UI &amp; Accessibility</a></h3>
+                        <p class="work-card__meta">NAVER Clova AI · 2018–2023</p>
+                        <p class="work-card__desc">Voice-driven programming game for kids and layered alt text for screen reader users. Two full-stack prototypes published at top venue.</p>
+                        <p class="work-card__impact">2× ACM CHI publications</p>
                         <div class="work-card__tags">
-                            <span class="tag">Web Speech API</span>
-                            <span class="tag">HCI</span>
+                            <span class="tag tag--pillar">#HCI-Research</span>
                         </div>
+                        <a href="projects/research.html" class="work-card__more">2 case studies →</a>
                     </div>
                 </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Arc Timeline -->
+    <section class="career-arc">
+        <div class="container container--wide">
+            <p class="section-title">Career Arc</p>
+            <div class="career-arc__track">
+                <div class="career-arc__node">
+                    <span class="career-arc__year">2015</span>
+                    <span class="career-arc__company">NAVER</span>
+                    <span class="career-arc__label">FE Platform</span>
+                    <span class="career-arc__domain">WebGL / 3D</span>
+                </div>
+                <div class="career-arc__node">
+                    <span class="career-arc__year">2018</span>
+                    <span class="career-arc__company">NAVER</span>
+                    <span class="career-arc__label">View360 Release</span>
+                    <span class="career-arc__domain">Open Source</span>
+                </div>
+                <div class="career-arc__node">
+                    <span class="career-arc__year">2019</span>
+                    <span class="career-arc__company">NAVER</span>
+                    <span class="career-arc__label">Clova AI · TurtleTalk</span>
+                    <span class="career-arc__domain">HCI Research</span>
+                </div>
+                <div class="career-arc__node">
+                    <span class="career-arc__year">2021</span>
+                    <span class="career-arc__company">Amazon</span>
+                    <span class="career-arc__label">Selling Partner Financial</span>
+                    <span class="career-arc__domain">E-commerce</span>
+                </div>
+                <div class="career-arc__node">
+                    <span class="career-arc__year">2022</span>
+                    <span class="career-arc__company">AWS</span>
+                    <span class="career-arc__label">SageMaker + S3</span>
+                    <span class="career-arc__domain">Perf at Scale</span>
+                </div>
+                <div class="career-arc__node">
+                    <span class="career-arc__year">2024</span>
+                    <span class="career-arc__company">AWS</span>
+                    <span class="career-arc__label">Bedrock Guardrails</span>
+                    <span class="career-arc__domain">Gen AI Safety</span>
+                </div>
+                <div class="career-arc__node">
+                    <span class="career-arc__year">NOW</span>
+                    <span class="career-arc__company">&nbsp;</span>
+                    <span class="career-arc__label">Seeking next challenge</span>
+                    <span class="career-arc__domain">&nbsp;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Numbers -->
+    <section class="key-numbers">
+        <div class="container container--wide">
+            <div class="key-numbers__grid">
+                <div class="key-number">
+                    <div class="key-number__value" data-count="10">0</div>
+                    <div class="key-number__label">years<br>experience</div>
+                </div>
+                <div class="key-number">
+                    <div class="key-number__value" data-count="97" data-suffix="%">0</div>
+                    <div class="key-number__label">render time ↓<br>at AWS</div>
+                </div>
+                <div class="key-number">
+                    <div class="key-number__value" data-count="531">0</div>
+                    <div class="key-number__label">GitHub &#9733;<br>on View360</div>
+                </div>
+                <div class="key-number">
+                    <div class="key-number__value" data-count="100" data-suffix="+">0</div>
+                    <div class="key-number__label">AI models<br>onboarded</div>
+                </div>
+                <div class="key-number">
+                    <div class="key-number__value" data-count="2">0</div>
+                    <div class="key-number__label">ACM CHI<br>papers</div>
+                </div>
             </div>
         </div>
     </section>
@@ -131,19 +214,26 @@
 
             <ul class="research-list">
                 <li class="research-item">
+                    <div class="research-item__logo">
+                        <img src="images/research/chi2023-logo.png" alt="ACM CHI 2023">
+                    </div>
                     <div class="research-item__info">
                         <div class="research-item__title">Dimensional Alt Text</div>
                         <p class="research-item__desc">
                             Co-authored study enhancing spatial understanding for screen readers with layered image descriptions.
                         </p>
                         <div class="research-item__links">
-                            <a href="https://doi.org/10.1145/3544548.3581431">Paper →</a>
+                            <a href="https://dl.acm.org/doi/full/10.1145/3544549.3585706">Paper →</a>
+                            <a href="projects/research.html#dimensional-alt-text">Case Study →</a>
                         </div>
                     </div>
                     <span class="research-item__venue">ACM CHI 2023</span>
                 </li>
 
                 <li class="research-item">
+                    <div class="research-item__logo">
+                        <img src="images/research/chi2019-logo.jpg" alt="ACM CHI 2019">
+                    </div>
                     <div class="research-item__info">
                         <div class="research-item__title">TurtleTalk: Voice-Driven Educational Programming Game</div>
                         <p class="research-item__desc">
@@ -151,7 +241,7 @@
                         </p>
                         <div class="research-item__links">
                             <a href="https://doi.org/10.1145/3290607.3312773">Paper →</a>
-                            <a href="projects/turtletalk.html">Case Study →</a>
+                            <a href="projects/research.html#turtletalk">Case Study →</a>
                         </div>
                     </div>
                     <span class="research-item__venue">ACM CHI 2019</span>

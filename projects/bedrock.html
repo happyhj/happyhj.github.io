@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guardrails for Amazon Bedrock — Config-driven model onboarding for 100+ models, console decoupling for independent releases. Case study by Heejae Kim.">
+    <title>Guardrails for Amazon Bedrock — Heejae Kim</title>
+
+    <meta property="og:title" content="Guardrails for Amazon Bedrock">
+    <meta property="og:description" content="Config-driven onboarding of 100+ Gen AI models for re:Invent 2024. Zero-regression launch.">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLDMVLH905"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RLDMVLH905');
+    </script>
+
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+    <main class="case-study">
+        <div class="container">
+            <a href="../" class="case-study__back">← Back to Portfolio</a>
+
+            <h1>Guardrails for Amazon Bedrock</h1>
+            <p class="case-study__meta">Amazon Web Services · SDE II · 2024–present</p>
+
+            <hr>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tabs__btn tabs__btn--active" data-tab="config-driven">Config-Driven Architecture</button>
+                <button class="tabs__btn" data-tab="console-decoupling">Console Decoupling</button>
+            </div>
+
+            <!-- ════════════════════════════════════════════ -->
+            <!-- CS1: Config-Driven Model Onboarding          -->
+            <!-- ════════════════════════════════════════════ -->
+            <div id="config-driven" class="tab-panel tab-panel--active">
+
+                <div class="tldr">
+                    <p>
+                        Redesigned model onboarding from 3-week custom code per model to a config file.
+                        Shipped 100+ models across modalities with zero regression for re:Invent 2024.
+                    </p>
+                </div>
+
+                <h2>Problem</h2>
+
+                <!-- SVG: bedrock-before.svg -->
+                <div class="diagram">
+                    <img src="../images/bedrock/before.svg" alt="Before: each model requires custom adapter code, 3 weeks per model">
+                </div>
+
+                <p>
+                    Each new model onboarded to Guardrails required custom integration code —
+                    handling its specific request/response format, modality (text, image, video),
+                    and API contract. Every model took roughly 3 weeks of engineering work,
+                    and each modality owner implemented their own adapter logic.
+                </p>
+                <p>
+                    With 100+ foundation models and Bedrock rapidly expanding,
+                    this manual approach was unsustainable for the re:Invent 2024 deadline.
+                </p>
+
+                <h2>Solution</h2>
+
+                <!-- SVG: bedrock-after.svg -->
+                <div class="diagram">
+                    <img src="../images/bedrock/after.svg" alt="After: config-driven factory pattern — one config file per model, zero code changes">
+                </div>
+
+                <h3>1. Config-Driven Model Onboarding</h3>
+                <p>
+                    Redesigned the onboarding flow from custom code per model to a declarative
+                    configuration system. Each model's guardrails integration is defined by a config
+                    file specifying modality, request/response schema mapping, and policy application points.
+                    New models onboard by adding a config entry — no code changes required.
+                    <!-- Content gap: config file structure (Track B item #8) -->
+                </p>
+
+                <h3>2. Cross-Modality Compatibility</h3>
+                <p>
+                    Partnered with text, image, and video modality owners to validate that
+                    the config-driven system correctly handles each modality's unique guardrails requirements.
+                    Ensured zero-regression across all existing integrations during migration.
+                    <!-- Content gap: cross-modality verification process (Track B item #9) -->
+                </p>
+
+                <h2>Shipping &amp; Launch</h2>
+
+                <!-- SVG: bedrock-scale.svg -->
+                <div class="diagram">
+                    <img src="../images/bedrock/scale.svg" alt="Onboarding speed comparison: 3 weeks per model vs config-only instant onboarding">
+                </div>
+
+                <p>
+                    Successfully onboarded 100+ models for the re:Invent 2024 launch with zero regressions.
+                    The config-driven architecture means future models automatically inherit guardrails support.
+                </p>
+
+                <h2>Key Metrics</h2>
+                <div class="metrics-strip">
+                    <span class="metrics-strip__item">100+ models onboarded</span>
+                    <span class="metrics-strip__item">3wk → 0 code changes</span>
+                    <span class="metrics-strip__item">Zero regression</span>
+                </div>
+            </div>
+
+            <!-- ════════════════════════════════════════════ -->
+            <!-- CS2: Console Decoupling & DX                 -->
+            <!-- ════════════════════════════════════════════ -->
+            <div id="console-decoupling" class="tab-panel">
+
+                <div class="tldr">
+                    <p>
+                        Decoupled the Guardrails console from Bedrock core — achieving release independence
+                        and cutting code review cycle time by 50%.
+                    </p>
+                </div>
+
+                <h2>Problem</h2>
+                <p>
+                    The Guardrails console code lived inside the core Bedrock console codebase.
+                    Every UI change required code review from the core Bedrock team,
+                    creating a bottleneck that slowed feature delivery.
+                    Merge conflicts between Guardrails and other Bedrock features were frequent.
+                </p>
+
+                <h2>Solution</h2>
+
+                <!-- SVG: console-decouple.svg -->
+                <div class="diagram">
+                    <img src="../images/bedrock/decouple.svg" alt="Console decoupling: before (monolithic) vs after (independent Guardrails package)">
+                </div>
+
+                <p>
+                    Decoupled the Guardrails console into a separate package with its own
+                    build and deployment pipeline. Defined clear API boundaries between
+                    Guardrails and core Bedrock console code.
+                    <!-- Content gap: decoupling strategy details (Track B item #10) -->
+                </p>
+
+                <h2>Impact</h2>
+                <ul>
+                    <li>Code review waiting time cut by <strong>50%</strong></li>
+                    <li>Merge conflicts eliminated</li>
+                    <li>Guardrails team owns their release cycle independently</li>
+                    <li>Scalable architecture for future Bedrock feature teams</li>
+                </ul>
+
+                <h2>Key Metrics</h2>
+                <div class="metrics-strip">
+                    <span class="metrics-strip__item">50%↓ code review cycle</span>
+                    <span class="metrics-strip__item">0 merge conflicts</span>
+                    <span class="metrics-strip__item">Independent releases</span>
+                </div>
+            </div>
+
+            <nav class="case-study__nav">
+                <a href="aws.html">← Previous: Frontend at AWS</a>
+                <a href="research.html">Next: HCI Research →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Heejae Kim</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" width="640" height="280">
+  <rect width="640" height="280" fill="#f7f7f7"/>
+
+  <!-- Title -->
+  <text x="320" y="25" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="600" fill="#111">Before: Custom Adapter Per Model</text>
+
+  <!-- Model A -->
+  <rect x="40" y="50" width="100" height="40" rx="2" fill="#1a5276" stroke="#111" stroke-width="1"/>
+  <text x="90" y="75" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="12" font-weight="600" fill="#fff">Model A</text>
+  <!-- Arrow down -->
+  <line x1="90" y1="90" x2="90" y2="110" stroke="#111" stroke-width="1"/>
+  <polygon points="90,110 86,104 94,104" fill="#111"/>
+  <!-- Custom Adapter (tall, narrow) -->
+  <rect x="50" y="115" width="80" height="65" rx="2" fill="#fff" stroke="#111" stroke-width="1"/>
+  <text x="90" y="140" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#111">Adapter</text>
+  <text x="90" y="152" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">v1.2</text>
+  <!-- Lines inside adapter to show custom code -->
+  <line x1="58" y1="160" x2="118" y2="160" stroke="#ddd" stroke-width="0.5"/>
+  <line x1="58" y1="165" x2="108" y2="165" stroke="#ddd" stroke-width="0.5"/>
+  <line x1="58" y1="170" x2="115" y2="170" stroke="#ddd" stroke-width="0.5"/>
+
+  <!-- Model B -->
+  <rect x="190" y="50" width="100" height="40" rx="2" fill="#1a5276" stroke="#111" stroke-width="1"/>
+  <text x="240" y="75" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="12" font-weight="600" fill="#fff">Model B</text>
+  <line x1="240" y1="90" x2="240" y2="110" stroke="#111" stroke-width="1"/>
+  <polygon points="240,110 236,104 244,104" fill="#111"/>
+  <!-- Custom Adapter (short, wide) - different shape to show inconsistency -->
+  <rect x="195" y="115" width="90" height="50" rx="2" fill="#fff" stroke="#111" stroke-width="1"/>
+  <text x="240" y="137" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#111">Adapter</text>
+  <text x="240" y="149" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">v2.0</text>
+  <line x1="203" y1="155" x2="275" y2="155" stroke="#ddd" stroke-width="0.5"/>
+
+  <!-- Model C -->
+  <rect x="340" y="50" width="100" height="40" rx="2" fill="#1a5276" stroke="#111" stroke-width="1"/>
+  <text x="390" y="75" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="12" font-weight="600" fill="#fff">Model C</text>
+  <line x1="390" y1="90" x2="390" y2="110" stroke="#111" stroke-width="1"/>
+  <polygon points="390,110 386,104 394,104" fill="#111"/>
+  <!-- Custom Adapter (irregular shape) -->
+  <rect x="352" y="115" width="76" height="72" rx="2" fill="#fff" stroke="#111" stroke-width="1"/>
+  <text x="390" y="142" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#111">Adapter</text>
+  <text x="390" y="154" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">v1.0</text>
+  <line x1="360" y1="162" x2="420" y2="162" stroke="#ddd" stroke-width="0.5"/>
+  <line x1="360" y1="167" x2="415" y2="167" stroke="#ddd" stroke-width="0.5"/>
+  <line x1="360" y1="172" x2="418" y2="172" stroke="#ddd" stroke-width="0.5"/>
+  <line x1="360" y1="177" x2="410" y2="177" stroke="#ddd" stroke-width="0.5"/>
+
+  <!-- Model D (with ...) -->
+  <rect x="490" y="50" width="100" height="40" rx="2" fill="#1a5276" stroke="#111" stroke-width="1"/>
+  <text x="540" y="75" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="12" font-weight="600" fill="#fff">Model D</text>
+  <line x1="540" y1="90" x2="540" y2="110" stroke="#111" stroke-width="1"/>
+  <polygon points="540,110 536,104 544,104" fill="#111"/>
+  <!-- Custom Adapter -->
+  <rect x="500" y="115" width="80" height="55" rx="2" fill="#fff" stroke="#111" stroke-width="1"/>
+  <text x="540" y="138" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#111">Adapter</text>
+  <text x="540" y="150" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">v3.1</text>
+  <line x1="508" y1="158" x2="572" y2="158" stroke="#ddd" stroke-width="0.5"/>
+  <line x1="508" y1="163" x2="565" y2="163" stroke="#ddd" stroke-width="0.5"/>
+
+  <!-- Ellipsis between C and D -->
+  <text x="460" y="75" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="16" fill="#888">...</text>
+
+  <!-- Problem indicator line -->
+  <line x1="40" y1="210" x2="600" y2="210" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Label -->
+  <text x="320" y="237" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#111">Custom code per model</text>
+  <text x="320" y="257" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#1a5276" font-weight="600">~3 weeks each</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" width="640" height="280">
+  <rect width="640" height="280" fill="#f7f7f7"/>
+
+  <!-- Title -->
+  <text x="320" y="25" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="600" fill="#111">Integration Time per Model</text>
+
+  <!-- Baseline -->
+  <line x1="80" y1="240" x2="560" y2="240" stroke="#111" stroke-width="1"/>
+
+  <!-- Before bar (tall) -->
+  <rect x="140" y="50" width="120" height="190" rx="2" fill="#fff" stroke="#111" stroke-width="1.5"/>
+  <!-- Fill pattern to show time -->
+  <rect x="141" y="51" width="118" height="188" rx="2" fill="#ddd" opacity="0.5"/>
+  <!-- Clock icon -->
+  <circle cx="200" cy="100" r="18" fill="none" stroke="#111" stroke-width="1.5"/>
+  <line x1="200" y1="100" x2="200" y2="87" stroke="#111" stroke-width="1.5"/>
+  <line x1="200" y1="100" x2="212" y2="100" stroke="#111" stroke-width="1.5"/>
+  <circle cx="200" cy="100" r="2" fill="#111"/>
+  <text x="200" y="140" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="13" font-weight="600" fill="#111">Before</text>
+  <text x="200" y="160" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#555">~3 weeks</text>
+  <text x="200" y="178" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="10" fill="#888">per model</text>
+  <!-- Time ticks -->
+  <text x="200" y="200" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">Week 1: Research</text>
+  <text x="200" y="212" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">Week 2: Implement</text>
+  <text x="200" y="224" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">Week 3: Test + QA</text>
+
+  <!-- After bar (very short) -->
+  <rect x="380" y="210" width="120" height="30" rx="2" fill="#1a5276" stroke="#111" stroke-width="1.5"/>
+  <text x="440" y="230" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="12" font-weight="600" fill="#fff">After</text>
+  <!-- Check mark -->
+  <path d="M420,170 L435,185 L465,155" fill="none" stroke="#1a5276" stroke-width="3"/>
+  <text x="440" y="205" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#1a5276" font-weight="600">Config only</text>
+
+  <!-- Center label: 100+ models -->
+  <rect x="270" y="115" width="100" height="32" rx="2" fill="#fff" stroke="#1a5276" stroke-width="1"/>
+  <text x="320" y="136" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="12" font-weight="600" fill="#1a5276">100+ models</text>
+
+  <!-- Arrow from before to center -->
+  <line x1="260" y1="130" x2="270" y2="130" stroke="#111" stroke-width="1"/>
+
+  <!-- Arrow from center to after -->
+  <line x1="370" y1="130" x2="440" y2="170" stroke="#111" stroke-width="1"/>
+  <polygon points="440,170 434,162 440,163" fill="#111"/>
+
+  <!-- Bottom labels -->
+  <text x="200" y="260" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="10" fill="#888">Time</text>
+  <text x="440" y="260" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="10" fill="#888">Time</text>
+</svg>

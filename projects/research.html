@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HCI Research — TurtleTalk voice programming game (ACM CHI 2019) and Dimensional Alt Text accessibility research (ACM CHI 2023). Case studies by Heejae Kim.">
+    <title>HCI Research: Voice UI &amp; Accessibility — Heejae Kim</title>
+
+    <meta property="og:title" content="HCI Research: Voice UI & Accessibility">
+    <meta property="og:description" content="2 ACM CHI publications — voice-driven programming for kids and layered alt text for screen readers.">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLDMVLH905"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RLDMVLH905');
+    </script>
+
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+    <main class="case-study">
+        <div class="container">
+            <a href="../" class="case-study__back">← Back to Portfolio</a>
+
+            <h1>HCI Research: Voice UI &amp; Accessibility</h1>
+            <p class="case-study__meta">NAVER Clova AI · 2018–2023</p>
+
+            <hr>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tabs__btn tabs__btn--active" data-tab="turtletalk">TurtleTalk</button>
+                <button class="tabs__btn" data-tab="dimensional-alt-text">Dimensional Alt Text</button>
+            </div>
+
+            <!-- ════════════════════════════════════════════ -->
+            <!-- CS1: TurtleTalk                              -->
+            <!-- ════════════════════════════════════════════ -->
+            <div id="turtletalk" class="tab-panel tab-panel--active">
+
+                <div class="case-study__hero-img case-study__hero-img--no-border">
+                    <img src="../images/research/chi2019-logo.jpg"
+                         alt="ACM CHI 2019 — Glasgow, UK"
+                         loading="lazy"
+                         style="max-width: 200px;">
+                </div>
+
+                <div class="tldr">
+                    <p>
+                        Full-stack prototype published at ACM CHI 2019 — teaching children programming
+                        through voice commands and visual turtle graphics.
+                    </p>
+                </div>
+
+                <h2>Problem</h2>
+                <p>
+                    Young children who haven't yet learned to type still benefit from early exposure
+                    to computational thinking — sequencing, repetition, and cause-and-effect in code.
+                    Existing tools (Scratch, Code.org) require reading, clicking, or dragging blocks,
+                    creating barriers for pre-literate or early-literate children.
+                </p>
+
+                <h2>Solution</h2>
+
+                <!-- SVG: turtletalk-arch.svg -->
+                <div class="diagram">
+                    <img src="../images/research/turtletalk-arch.svg" alt="TurtleTalk architecture: voice input → speech recognition → command parser → turtle graphics">
+                </div>
+
+                <p>
+                    A browser-based prototype combining three web APIs into a seamless voice-to-code loop:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Web Speech API</strong> for real-time voice command recognition —
+                        the child speaks naturally, and the system interprets directional and control commands.
+                    </li>
+                    <li>
+                        <strong>Google Translate API</strong> for multilingual support —
+                        allowing children to speak commands in their native language
+                        (Korean, English, etc.) with automatic translation.
+                    </li>
+                    <li>
+                        <strong>Canvas-based turtle graphics</strong> for immediate visual feedback —
+                        the turtle moves, draws, and turns on screen as commands are spoken.
+                    </li>
+                </ul>
+                <p>
+                    The entire prototype runs in the browser with no installation required.
+                </p>
+
+                <h2>My Role</h2>
+                <ul>
+                    <li>Designed the interaction model: voice → parsed command → visual execution</li>
+                    <li>Built the full-stack prototype (frontend + voice processing pipeline)</li>
+                    <li>Implemented the multilingual command mapping via translation API</li>
+                    <li>Designed the visual turtle graphics rendering and animation</li>
+                    <li>Participated in user study design and prototype iteration</li>
+                    <!-- Content gap: user study results (Track B item #12) -->
+                </ul>
+
+                <h2>Impact</h2>
+                <ul>
+                    <li>Published at <strong>ACM CHI 2019</strong> (Glasgow, UK) — the top venue in Human-Computer Interaction</li>
+                    <li>Demonstrated that voice-based programming interfaces are viable for pre-literate children</li>
+                    <li>Prototype validated through user studies with children</li>
+                </ul>
+
+                <h2>Links</h2>
+                <div class="case-study__links">
+                    <a href="https://doi.org/10.1145/3290607.3312773">ACM Digital Library</a>
+                </div>
+            </div>
+
+            <!-- ════════════════════════════════════════════ -->
+            <!-- CS2: Dimensional Alt Text                    -->
+            <!-- ════════════════════════════════════════════ -->
+            <div id="dimensional-alt-text" class="tab-panel">
+
+                <div class="case-study__hero-img">
+                    <img src="../images/research/alttext-figure3.png"
+                         alt="Prototype comparison: Conventional alt text (single flat description) vs Dimensional alt text (layered foreground, middle ground, background descriptions)"
+                         loading="lazy">
+                    <p class="diagram__caption">Prototype of Dimensional alt text for comparison with conventional alt text</p>
+                </div>
+
+                <div class="tldr">
+                    <p>
+                        Enhancing spatial understanding for screen reader users —
+                        a layered alt text system published at ACM CHI 2023.
+                    </p>
+                </div>
+
+                <h2>Problem</h2>
+                <p>
+                    Traditional alt text provides a single flat description of an image,
+                    which fails to convey spatial relationships, object positions,
+                    and the dimensional structure that sighted users perceive at a glance.
+                    Screen reader users miss critical context about where things are in an image.
+                </p>
+
+                <h2>Contribution</h2>
+                <p>
+                    Co-authored a study proposing layered image descriptions that separate
+                    overall scene context from spatial details and individual object descriptions.
+                    This dimensional approach gives screen reader users the ability to navigate
+                    image content at different levels of detail.
+                    <!-- Content gap: specific contribution (Track B item #11) -->
+                </p>
+
+                <h2>Impact</h2>
+                <div class="case-study__two-col">
+                    <ul>
+                        <li>Published at <strong>ACM CHI 2023</strong> (Hamburg, Germany)</li>
+                        <li>Advances accessibility research for non-visual image understanding</li>
+                        <li>Applicable to web accessibility standards and assistive technology design</li>
+                    </ul>
+                    <div class="case-study__hero-img">
+                        <img src="../images/research/chi2023-poster.jpg"
+                             alt="Heejae Kim presenting the Dimensional Alt Text poster at ACM CHI 2023, Hamburg"
+                             loading="lazy">
+                    </div>
+                </div>
+
+                <h2>Links</h2>
+                <div class="case-study__links">
+                    <a href="https://dl.acm.org/doi/full/10.1145/3544549.3585706">ACM Digital Library</a>
+                </div>
+            </div>
+
+            <nav class="case-study__nav">
+                <a href="bedrock.html">← Previous: Bedrock Guardrails</a>
+                <span></span>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Heejae Kim</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320">
+  <rect width="640" height="320" fill="#f7f7f7"/>
+
+  <!-- Title -->
+  <text x="320" y="25" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="14" font-weight="600" fill="#111">Feature Migration Scope</text>
+
+  <!-- Left column: Data Wrangler -->
+  <rect x="30" y="45" width="220" height="255" rx="2" fill="#fff" stroke="#111" stroke-width="1"/>
+  <rect x="30" y="45" width="220" height="28" rx="2" fill="#1a5276"/>
+  <rect x="30" y="71" width="220" height="0.5" fill="#1a5276"/>
+  <text x="140" y="64" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="13" font-weight="600" fill="#fff">Data Wrangler</text>
+
+  <!-- Feature boxes (left) -->
+  <rect x="45" y="85" width="190" height="38" rx="2" fill="#f7f7f7" stroke="#ddd" stroke-width="1"/>
+  <text x="140" y="108" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#111">Data Transform</text>
+
+  <rect x="45" y="133" width="190" height="38" rx="2" fill="#f7f7f7" stroke="#ddd" stroke-width="1"/>
+  <text x="140" y="156" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#111">Data Quality</text>
+
+  <rect x="45" y="181" width="190" height="38" rx="2" fill="#f7f7f7" stroke="#ddd" stroke-width="1"/>
+  <text x="140" y="204" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#111">Data Insights</text>
+
+  <rect x="45" y="229" width="190" height="38" rx="2" fill="#f7f7f7" stroke="#ddd" stroke-width="1"/>
+  <text x="140" y="252" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#111">DataGrid</text>
+
+  <!-- Right column: SageMaker Canvas -->
+  <rect x="390" y="45" width="220" height="255" rx="2" fill="#fff" stroke="#111" stroke-width="1"/>
+  <rect x="390" y="45" width="220" height="28" rx="2" fill="#1a5276"/>
+  <rect x="390" y="71" width="220" height="0.5" fill="#1a5276"/>
+  <text x="500" y="64" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="13" font-weight="600" fill="#fff">SageMaker Canvas</text>
+
+  <!-- Feature boxes (right) -->
+  <rect x="405" y="85" width="190" height="38" rx="2" fill="#f7f7f7" stroke="#ddd" stroke-width="1"/>
+  <text x="500" y="108" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#111">Data Transform</text>
+
+  <rect x="405" y="133" width="190" height="38" rx="2" fill="#f7f7f7" stroke="#ddd" stroke-width="1"/>
+  <text x="500" y="156" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#111">Data Quality</text>
+
+  <rect x="405" y="181" width="190" height="38" rx="2" fill="#f7f7f7" stroke="#ddd" stroke-width="1"/>
+  <text x="500" y="204" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#111">Data Insights</text>
+
+  <rect x="405" y="229" width="190" height="38" rx="2" fill="#f7f7f7" stroke="#ddd" stroke-width="1"/>
+  <text x="500" y="252" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#111">DataGrid</text>
+
+  <!-- Arrows connecting each pair -->
+  <!-- Arrow 1 -->
+  <line x1="235" y1="104" x2="405" y2="104" stroke="#111" stroke-width="1"/>
+  <polygon points="405,104 397,99 397,109" fill="#111"/>
+
+  <!-- Arrow 2 -->
+  <line x1="235" y1="152" x2="405" y2="152" stroke="#111" stroke-width="1"/>
+  <polygon points="405,152 397,147 397,157" fill="#111"/>
+
+  <!-- Arrow 3 -->
+  <line x1="235" y1="200" x2="405" y2="200" stroke="#111" stroke-width="1"/>
+  <polygon points="405,200 397,195 397,205" fill="#111"/>
+
+  <!-- Arrow 4 -->
+  <line x1="235" y1="248" x2="405" y2="248" stroke="#111" stroke-width="1"/>
+  <polygon points="405,248 397,243 397,253" fill="#111"/>
+
+  <!-- Center migration label -->
+  <text x="320" y="140" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">migrate</text>
+</svg>

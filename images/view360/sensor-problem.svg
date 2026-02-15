@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <rect width="640" height="400" fill="#f7f7f7"/>
+
+  <!-- Grid lines -->
+  <line x1="320" y1="20" x2="320" y2="380" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="20" y1="200" x2="620" y2="200" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Panel 1: Magnetic Noise (top-left) -->
+  <rect x="30" y="30" width="270" height="155" rx="2" fill="#fff" stroke="#111" stroke-width="1"/>
+  <text x="165" y="55" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="13" font-weight="600" fill="#111">Magnetic Noise</text>
+  <!-- Phone outline -->
+  <rect x="80" y="70" width="50" height="80" rx="4" fill="#fff" stroke="#111" stroke-width="1"/>
+  <rect x="95" y="73" width="20" height="3" rx="1" fill="#ddd"/>
+  <!-- Magnet icon -->
+  <path d="M175,85 L175,115 Q175,130 190,130 Q205,130 205,115 L205,85" fill="none" stroke="#1a5276" stroke-width="3"/>
+  <rect x="170" y="78" width="10" height="10" fill="#1a5276"/>
+  <rect x="200" y="78" width="10" height="10" fill="#1a5276"/>
+  <text x="190" y="75" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">N    S</text>
+  <!-- Wavy interference lines -->
+  <path d="M140,95 Q148,85 156,95 Q164,105 172,95" fill="none" stroke="#1a5276" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <path d="M140,105 Q148,95 156,105 Q164,115 172,105" fill="none" stroke="#1a5276" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <path d="M140,115 Q148,105 156,115 Q164,125 172,115" fill="none" stroke="#1a5276" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="165" y="168" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#555">Nearby metals corrupt compass</text>
+
+  <!-- Panel 2: Gyro Drift (top-right) -->
+  <rect x="340" y="30" width="270" height="155" rx="2" fill="#fff" stroke="#111" stroke-width="1"/>
+  <text x="475" y="55" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="13" font-weight="600" fill="#111">Gyroscope Drift</text>
+  <!-- Circular drift arrow -->
+  <circle cx="475" cy="110" r="35" fill="none" stroke="#ddd" stroke-width="1"/>
+  <path d="M475,75 A35,35 0 1,1 445,125" fill="none" stroke="#1a5276" stroke-width="2"/>
+  <polygon points="445,125 450,115 440,118" fill="#1a5276"/>
+  <!-- Drift indicator -->
+  <line x1="475" y1="110" x2="510" y2="110" stroke="#111" stroke-width="1" stroke-dasharray="2,2"/>
+  <line x1="475" y1="110" x2="505" y2="90" stroke="#1a5276" stroke-width="1.5"/>
+  <text x="515" y="95" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#1a5276">drift</text>
+  <text x="475" y="168" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#555">Accumulating error over time</text>
+
+  <!-- Panel 3: Orientation Flip (bottom-left) -->
+  <rect x="30" y="215" width="270" height="155" rx="2" fill="#fff" stroke="#111" stroke-width="1"/>
+  <text x="165" y="240" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="13" font-weight="600" fill="#111">Orientation Flip</text>
+  <!-- Phone lying flat -->
+  <path d="M90,300 L180,280 L230,285 L140,305 Z" fill="#fff" stroke="#111" stroke-width="1"/>
+  <text x="155" y="296" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#888">flat</text>
+  <!-- X mark -->
+  <line x1="230" y1="275" x2="255" y2="305" stroke="#1a5276" stroke-width="3"/>
+  <line x1="255" y1="275" x2="230" y2="305" stroke="#1a5276" stroke-width="3"/>
+  <text x="165" y="353" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#555">Gimbal lock at +-90 deg pitch</text>
+
+  <!-- Panel 4: Wrong Initial View (bottom-right) -->
+  <rect x="340" y="215" width="270" height="155" rx="2" fill="#fff" stroke="#111" stroke-width="1"/>
+  <text x="475" y="240" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="13" font-weight="600" fill="#111">Wrong Initial View</text>
+  <!-- Phone showing floor -->
+  <rect x="430" y="255" width="45" height="75" rx="4" fill="#fff" stroke="#111" stroke-width="1"/>
+  <rect x="435" y="265" width="35" height="50" fill="#f7f7f7" stroke="#ddd" stroke-width="0.5"/>
+  <!-- Floor pattern inside phone screen -->
+  <line x1="435" y1="275" x2="470" y2="275" stroke="#ddd" stroke-width="0.5"/>
+  <line x1="435" y1="285" x2="470" y2="285" stroke="#ddd" stroke-width="0.5"/>
+  <line x1="435" y1="295" x2="470" y2="295" stroke="#ddd" stroke-width="0.5"/>
+  <line x1="445" y1="265" x2="445" y2="315" stroke="#ddd" stroke-width="0.5"/>
+  <line x1="455" y1="265" x2="455" y2="315" stroke="#ddd" stroke-width="0.5"/>
+  <line x1="465" y1="265" x2="465" y2="315" stroke="#ddd" stroke-width="0.5"/>
+  <!-- Arrow pointing down -->
+  <line x1="505" y1="270" x2="505" y2="320" stroke="#1a5276" stroke-width="2"/>
+  <polygon points="505,322 500,312 510,312" fill="#1a5276"/>
+  <text x="520" y="300" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="9" fill="#1a5276">floor</text>
+  <text x="475" y="353" text-anchor="middle" font-family="'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace" font-size="11" fill="#555">First frame shows ground</text>
+</svg>
