@@ -1,90 +1,59 @@
-/* ── Tab switching with URL hash deep-link ── */
-function activateTab(tabId) {
-  var btn = document.querySelector('.tabs__btn[data-tab="' + tabId + '"]');
-  if (!btn) return false;
-
-  var tabBar = btn.closest('.tabs');
-  var container = tabBar.parentElement;
-
-  tabBar.querySelectorAll('.tabs__btn').forEach(function(b) {
-    b.classList.remove('tabs__btn--active');
-  });
-  container.querySelectorAll('.tab-panel').forEach(function(p) {
-    p.classList.remove('tab-panel--active');
-  });
-
-  btn.classList.add('tabs__btn--active');
-  var panel = container.querySelector('#' + tabId);
-  if (panel) panel.classList.add('tab-panel--active');
-  return true;
-}
-
-// Click handler — update hash
-document.querySelectorAll('.tabs').forEach(function(tabBar) {
-  tabBar.addEventListener('click', function(e) {
-    var btn = e.target.closest('.tabs__btn');
-    if (!btn) return;
-
-    var tabId = btn.getAttribute('data-tab');
-    activateTab(tabId);
-    history.replaceState(null, '', '#' + tabId);
-  });
-});
-
-// On load — activate tab from URL hash
+/* ── Floating nav: scroll-based active state + smooth scroll ── */
 (function() {
-  var hash = window.location.hash.replace('#', '');
-  if (hash) activateTab(hash);
-})();
+  var nav = document.querySelector('.floating-nav');
+  if (!nav) return;
 
-/* ── Count-up animation for Key Numbers ── */
-(function() {
-  var counters = document.querySelectorAll('[data-count]');
-  if (!counters.length) return;
+  var items = nav.querySelectorAll('.floating-nav__item');
+  var sections = [];
 
-  var animated = new Set();
+  items.forEach(function(item) {
+    var id = item.getAttribute('href').replace('#', '');
+    var section = document.getElementById(id);
+    if (section) sections.push({ id: id, el: section, link: item });
+  });
 
-  function animateCounter(el) {
-    var target = parseInt(el.getAttribute('data-count'), 10);
-    var suffix = el.getAttribute('data-suffix') || '';
-    var duration = 1200;
-    var start = null;
+  // Smooth scroll on click
+  items.forEach(function(item) {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      var id = item.getAttribute('href').replace('#', '');
+      var target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', '#' + id);
+      }
+    });
+  });
 
-    function step(timestamp) {
-      if (!start) start = timestamp;
-      var progress = Math.min((timestamp - start) / duration, 1);
-      // ease-out
-      var eased = 1 - Math.pow(1 - progress, 3);
-      var current = Math.round(eased * target);
-      el.textContent = current + suffix;
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        el.textContent = target + suffix;
+  // Update active on scroll
+  function updateActive() {
+    var scrollY = window.scrollY + window.innerHeight / 3;
+
+    var current = sections[0];
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].el.offsetTop <= scrollY) {
+        current = sections[i];
       }
     }
 
-    requestAnimationFrame(step);
+    items.forEach(function(item) {
+      item.classList.remove('floating-nav__item--active');
+    });
+    if (current) current.link.classList.add('floating-nav__item--active');
   }
 
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting && !animated.has(entry.target)) {
-          animated.add(entry.target);
-          animateCounter(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
 
-    counters.forEach(function(el) {
-      observer.observe(el);
-    });
-  } else {
-    // Fallback: animate immediately
-    counters.forEach(function(el) {
-      animateCounter(el);
-    });
+  // On load — scroll to hash
+  var hash = window.location.hash.replace('#', '');
+  if (hash) {
+    var target = document.getElementById(hash);
+    if (target) {
+      setTimeout(function() {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
   }
 })();
 

@@ -30,16 +30,10 @@
 
             <hr>
 
-            <!-- Tabs -->
-            <div class="tabs">
-                <button class="tabs__btn tabs__btn--active" data-tab="config-driven">Config-Driven Architecture</button>
-                <button class="tabs__btn" data-tab="console-decoupling">Console Decoupling</button>
-            </div>
-
             <!-- ════════════════════════════════════════════ -->
             <!-- CS1: Config-Driven Model Onboarding          -->
             <!-- ════════════════════════════════════════════ -->
-            <div id="config-driven" class="tab-panel tab-panel--active">
+            <section id="config-driven" class="cs-section">
 
                 <div class="tldr">
                     <p>
@@ -108,12 +102,12 @@
                     <span class="metrics-strip__item">3wk → 0 code changes</span>
                     <span class="metrics-strip__item">Zero regression</span>
                 </div>
-            </div>
+            </section>
 
             <!-- ════════════════════════════════════════════ -->
             <!-- CS2: Console Decoupling & DX                 -->
             <!-- ════════════════════════════════════════════ -->
-            <div id="console-decoupling" class="tab-panel">
+            <section id="console-decoupling" class="cs-section">
 
                 <div class="tldr">
                     <p>
@@ -158,7 +152,7 @@
                     <span class="metrics-strip__item">0 merge conflicts</span>
                     <span class="metrics-strip__item">Independent releases</span>
                 </div>
-            </div>
+            </section>
 
             <nav class="case-study__nav">
                 <a href="aws.html">← Previous: Frontend at AWS</a>
@@ -166,6 +160,18 @@
             </nav>
         </div>
     </main>
+
+    <!-- Floating Case Study Nav -->
+    <nav class="floating-nav" aria-label="Case studies">
+        <a href="#config-driven" class="floating-nav__item floating-nav__item--active">
+            <img src="../images/bedrock/before.svg" alt="" class="floating-nav__img">
+            <span class="floating-nav__label">Config-Driven Architecture</span>
+        </a>
+        <a href="#console-decoupling" class="floating-nav__item">
+            <img src="../images/bedrock/decouple.svg" alt="" class="floating-nav__img">
+            <span class="floating-nav__label">Console Decoupling</span>
+        </a>
+    </nav>
 
     <footer class="footer">
         <div class="container">

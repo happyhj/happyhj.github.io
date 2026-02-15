@@ -30,16 +30,10 @@
 
             <hr>
 
-            <!-- Tabs -->
-            <div class="tabs">
-                <button class="tabs__btn tabs__btn--active" data-tab="turtletalk">TurtleTalk</button>
-                <button class="tabs__btn" data-tab="dimensional-alt-text">Dimensional Alt Text</button>
-            </div>
-
             <!-- ════════════════════════════════════════════ -->
             <!-- CS1: TurtleTalk                              -->
             <!-- ════════════════════════════════════════════ -->
-            <div id="turtletalk" class="tab-panel tab-panel--active">
+            <section id="turtletalk" class="cs-section">
 
                 <div class="case-study__hero-img case-study__hero-img--no-border">
                     <img src="../images/research/chi2019-logo.jpg"
@@ -113,12 +107,12 @@
                 <div class="case-study__links">
                     <a href="https://doi.org/10.1145/3290607.3312773">ACM Digital Library</a>
                 </div>
-            </div>
+            </section>
 
             <!-- ════════════════════════════════════════════ -->
             <!-- CS2: Dimensional Alt Text                    -->
             <!-- ════════════════════════════════════════════ -->
-            <div id="dimensional-alt-text" class="tab-panel">
+            <section id="dimensional-alt-text" class="cs-section">
 
                 <div class="case-study__hero-img">
                     <img src="../images/research/alttext-figure3.png"
@@ -169,7 +163,7 @@
                 <div class="case-study__links">
                     <a href="https://dl.acm.org/doi/full/10.1145/3544549.3585706">ACM Digital Library</a>
                 </div>
-            </div>
+            </section>
 
             <nav class="case-study__nav">
                 <a href="bedrock.html">← Previous: Bedrock Guardrails</a>
@@ -177,6 +171,18 @@
             </nav>
         </div>
     </main>
+
+    <!-- Floating Case Study Nav -->
+    <nav class="floating-nav" aria-label="Case studies">
+        <a href="#turtletalk" class="floating-nav__item floating-nav__item--active">
+            <img src="../images/research/chi2019-logo.jpg" alt="" class="floating-nav__img">
+            <span class="floating-nav__label">TurtleTalk</span>
+        </a>
+        <a href="#dimensional-alt-text" class="floating-nav__item">
+            <img src="../images/research/chi2023-poster.jpg" alt="" class="floating-nav__img">
+            <span class="floating-nav__label">Dimensional Alt Text</span>
+        </a>
+    </nav>
 
     <footer class="footer">
         <div class="container">
