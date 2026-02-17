@@ -65,11 +65,18 @@
                 <h2>Solution</h2>
 
                 <div class="diagram">
-                    <img src="../images/bedrock/after.svg" alt="After: config-driven — one config file per model, zero code changes">
+                    <img src="../images/bedrock/after.svg" alt="After: two-level routing — provider match then schema fingerprint, collapsing 100+ models into handful of configs">
                 </div>
 
                 <p>
-                    Decoupled model-specific logic into config files — each file defines the parsing pattern and skeleton response structure for a given model ID. Business logic loads the config at runtime, so onboarding a new model requires only adding a config file, with no changes to the Bedrock team's package.
+                    Decoupled model-specific logic into config files loaded at runtime — but a naive 1:1 model-to-config mapping would still require 100+ configs at scale. Designed a two-level routing instead:
+                </p>
+                <ol>
+                    <li><strong>Provider matching</strong> — route by provider (Anthropic, Meta, Cohere, etc.)</li>
+                    <li><strong>Schema fingerprint</strong> — detect response structure (e.g. <code>messages</code> field → v2, <code>text</code> field → v1) to select the correct parsing config within that provider</li>
+                </ol>
+                <p>
+                    This abstraction collapses hundreds of model IDs into a handful of provider × schema combinations, making bulk onboarding trivial.
                 </p>
 
                 <h2>Result</h2>
@@ -79,7 +86,7 @@
                 </div>
 
                 <p>
-                    Onboarding time dropped from 3 weeks to config deployment. Bulk onboarding became possible — shipped 100+ Jumpstart catalog models for Guardrails at re:Invent 2024.
+                    Onboarding time dropped from 3 weeks to config deployment. The two-level routing collapsed 100+ model IDs into a handful of provider × schema configs, making bulk onboarding trivial. Shipped 100+ Jumpstart catalog models for Guardrails at re:Invent 2024.
                 </p>
 
             </section>
