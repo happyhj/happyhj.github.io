@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="View360 — WebGL 360° viewer with custom sensor fusion, real-time telemetry visualization, and open source adoption by Amazon.com. Case study by Heejae Kim.">
-    <title>View360: 360° Viewer &amp; Sensor Fusion Engine — Heejae Kim</title>
+    <title>View360: WebGL Panorama Viewer with Motion — Heejae Kim</title>
 
-    <meta property="og:title" content="View360: 360° Viewer & Sensor Fusion Engine">
+    <meta property="og:title" content="View360: WebGL Panorama Viewer with Motion">
     <meta property="og:description" content="WebGL renderer + custom sensor fusion from scratch — adopted by Amazon.com. 531 GitHub stars.">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLDMVLH905"></script>
@@ -25,19 +25,20 @@
         <div class="container">
             <a href="../" class="case-study__back">← Back to Portfolio</a>
 
-            <h1>View360: 360° Viewer &amp; Sensor Fusion Engine</h1>
-            <p class="case-study__meta">NAVER · Front-End Platform · 2015–2018</p>
+            <h1>View360: WebGL Panorama Viewer with Motion</h1>
+            <p class="case-study__meta">NAVER · Front-End Platform</p>
 
             <hr>
 
             <nav class="sticky-nav" aria-label="Case studies">
                 <a href="#renderer-fusion" class="sticky-nav__item sticky-nav__item--active">
-                    <img src="../images/view360/fusion-pipeline.png" alt="" class="sticky-nav__img">
                     <span class="sticky-nav__label">Sensor Fusion &amp; Telemetry</span>
                 </a>
-                <a href="#open-source-journey" class="sticky-nav__item">
-                    <img src="../images/view360/adopters.png" alt="" class="sticky-nav__img">
-                    <span class="sticky-nav__label">Open Source Journey</span>
+                <a href="#webgl-compat" class="sticky-nav__item">
+                    <span class="sticky-nav__label">WebGL Rendering Compat</span>
+                </a>
+                <a href="#open-source-patent" class="sticky-nav__item">
+                    <span class="sticky-nav__label">Open Source &amp; Advocacy</span>
                 </a>
             </nav>
 
@@ -45,6 +46,8 @@
             <!-- Sensor Fusion & Telemetry                     -->
             <!-- ════════════════════════════════════════════ -->
             <section id="renderer-fusion" class="cs-section">
+
+                <h2 class="cs-section__title">Case Study #1: Sensor Fusion &amp; Telemetry</h2>
 
                 <p>
                     Implementing 360° camera control in mobile browsers using DeviceMotion and DeviceOrientation APIs.
@@ -96,165 +99,115 @@
                     </div>
                 </div>
 
-                <h2>Result</h2>
-                <p>
-                    Stabilized motion control across Galaxy S6–S8, covering the majority of mobile users. Adopted by four NAVER services.
-                </p>
-
-                <div class="case-study__hero-img">
-                    <img src="../images/view360/adopted-services.jpg"
-                         alt="View360 adopted by NAVER Blog, NAVER TV, V Live, and NAVER Real Estate"
-                         loading="lazy">
-                    <p class="diagram__caption">Adopted by NAVER Blog, TV, V Live, and Real Estate</p>
+                <div class="case-study__two-col">
+                    <div>
+                        <h2>Result</h2>
+                        <p>
+                            Stabilized motion control across Galaxy S6–S8, covering the majority of mobile users. Adopted by four NAVER services.
+                        </p>
+                    </div>
+                    <div class="case-study__hero-img">
+                        <img src="../images/view360/adopted-services.jpg"
+                             alt="View360 adopted by NAVER Blog, NAVER TV, V Live, and NAVER Real Estate"
+                             loading="lazy">
+                        <p class="diagram__caption">Adopted by NAVER Blog, TV, V Live, and Real Estate</p>
+                    </div>
                 </div>
             </section>
 
             <!-- ════════════════════════════════════════════ -->
-            <!-- Open Source Release & Adoption               -->
+            <!-- Enterprise-grade WebGL Rendering Compat      -->
             <!-- ════════════════════════════════════════════ -->
-            <section id="open-source-journey" class="cs-section">
+            <section id="webgl-compat" class="cs-section">
 
-                <div class="tldr">
-                    <p>
-                        From internal library to 531-star open source project adopted by Amazon.com and Hyundai.
-                        Published NPM package, built demo pages and API docs, presented at DEVIEW 2017.
-                    </p>
-                </div>
+                <h2 class="cs-section__title">Case Study #2: Enterprise-grade WebGL Rendering Compatibility</h2>
 
-                <h2>Enterprise Adoption</h2>
-
-                <div class="case-study__hero-img case-study__hero-img--no-border">
-                    <img src="../images/view360/adopters.png"
-                         alt="View360 adopted by Amazon.com and Hyundai Motor Company"
-                         loading="lazy">
-                </div>
-
+                <h2>Problem</h2>
                 <p>
-                    <strong>Amazon.com</strong> adopted View360 for their automotive showroom product pages,
-                    and <strong>Hyundai Motor Company</strong> integrated it for vehicle interior views.
+                    Rendering 360° images via WebGL produced inconsistent results across mobile browsers, each with different levels of WebGL support. New devices hitting the market could introduce regressions with no fast way to catch them.
                 </p>
 
-                <div class="case-study__hero-img">
-                    <img src="../images/view360/adopters-demo.gif"
-                         alt="View360 running on Amazon.com and Hyundai product pages"
-                         loading="lazy">
-                </div>
+                <h2>Solution</h2>
+                <p>
+                    Automated visual regression testing by diffing canvas-rendered images across browser/device stacks. Implemented CSS cubemap rendering as a fallback for browsers with broken or missing WebGL support.
+                </p>
 
-                <h2>Key Metrics</h2>
-                <div class="metrics-strip">
-                    <span class="metrics-strip__item">531 ★ GitHub</span>
-                    <span class="metrics-strip__item">5K+ weekly NPM downloads</span>
-                    <span class="metrics-strip__item">Amazon.com + Hyundai adopted</span>
-                    <span class="metrics-strip__item">DEVIEW 2017 (200+ attendees)</span>
-                </div>
+                <h2>Result — Enterprise Adoption</h2>
 
-                <h2>Conference Talks &amp; External Advocacy</h2>
-
-                <div class="case-study__hero-img">
-                    <img src="../images/view360/deview-talk.jpg"
-                         alt="Heejae Kim presenting at DEVIEW 2017 — 360 Viewer from Scratch"
-                         loading="lazy">
-                </div>
-
-                <ul>
-                    <li><strong>DEVIEW 2017</strong> — NAVER's flagship developer conference, 200+ attendees. Deep dive into WebGL rendering pipeline, sensor fusion algorithms, and gyroscope calibration techniques. <a href="https://m.ddaily.co.kr/page/view/2017101621423425057">Press coverage →</a></li>
-                    <li><strong>NAVER Open Source Seminar</strong> — Internal-to-external open source process</li>
-                    <li><strong>WebRTC Competition</strong> — 2nd place with sensor telemetry visualization tool</li>
-                </ul>
-
-                <h2>NPM Publishing &amp; Package Design</h2>
                 <div class="case-study__two-col">
-                    <div>
-                        <p>
-                            Designed the package API for external consumption — clean entry points, TypeScript definitions,
-                            and tree-shakable ES module builds. Published to NPM under <code>@egjs/view360</code>.
-                        </p>
+                    <div class="case-study__hero-img case-study__hero-img--no-border">
+                        <img src="../images/view360/adopters.png"
+                             alt="View360 adopted by Amazon.com and Hyundai Motor Company"
+                             loading="lazy">
                     </div>
                     <div class="case-study__hero-img">
-                        <img src="../images/view360/npm-downloads.png"
-                             alt="NPM download statistics for @egjs/view360"
+                        <img src="../images/view360/adopters-amazonhyundai.gif"
+                             alt="View360 running on Amazon.com and Hyundai showroom pages"
                              loading="lazy">
                     </div>
                 </div>
 
-                <h2>Demo Page &amp; Documentation</h2>
                 <p>
-                    Built an interactive demo site at <a href="https://naver.github.io/egjs-view360/">naver.github.io/egjs-view360</a>
-                    with live examples for equirectangular, cubemap, and partial panorama projections.
-                    API reference generated from JSDoc annotations.
+                    Adopted for enterprise showroom pages by Amazon and Hyundai.
+                    Achieved cross-browser coverage surpassing commercial libraries — IE11, iOS 9+, Android 5.0+, Galaxy S5+.
+                </p>
+            </section>
+
+            <!-- ════════════════════════════════════════════ -->
+            <!-- From Open Source to Patent                   -->
+            <!-- ════════════════════════════════════════════ -->
+            <section id="open-source-patent" class="cs-section">
+
+                <h2 class="cs-section__title">Open Source &amp; Advocacy</h2>
+
+                <div class="case-study__two-col">
+                    <div>
+                        <h2>Adoption</h2>
+                        <div class="case-study__hero-img">
+                            <img src="../images/view360/npm-stats.png"
+                                 alt="NPM download statistics for @egjs/view360"
+                                 loading="lazy">
+                            <p class="diagram__caption">531 GitHub stars, 8K+ weekly NPM downloads</p>
+                        </div>
+                        <p>
+                            <a href="https://www.npmjs.com/package/@egjs/view360">@egjs/view360 on NPM →</a>
+                        </p>
+                    </div>
+                    <div>
+                        <h2>Demo &amp; Documentation</h2>
+                        <div class="case-study__hero-img">
+                            <img src="../images/view360/demo-doc.gif"
+                                 alt="View360 interactive demo page showing various projection types"
+                                 loading="lazy">
+                            <p class="diagram__caption">Interactive demo with equirectangular, cubemap, and partial panorama examples</p>
+                        </div>
+                        <p>
+                            Interactive demo site with live examples for equirectangular, cubemap, and partial panorama projections. Full API reference auto-generated from JSDoc.
+                            <a href="https://naver.github.io/egjs-view360/">Live demo →</a>
+                        </p>
+                    </div>
+                </div>
+
+                <h2>Conference Talk</h2>
+                <div class="case-study__hero-img">
+                    <img src="../images/view360/deview-talk.jpg"
+                         alt="Heejae Kim presenting at DEVIEW 2017 — 360 Viewer from Scratch"
+                         loading="lazy">
+                    <p class="diagram__caption">Presenting "360° Viewer from Scratch" at DEVIEW 2017, Oct 16</p>
+                </div>
+                <p>
+                    DEVIEW 2017 — NAVER's flagship developer conference, 200+ attendees. Covered the full stack: WebGL rendering pipeline, sensor fusion, and gyroscope calibration. <a href="https://m.ddaily.co.kr/page/view/2017101621423425057">Press coverage →</a>
                 </p>
 
                 <div class="case-study__hero-img">
-                    <img src="../images/view360/demo-page.gif"
-                         alt="View360 interactive demo page showing various projection types"
-                         loading="lazy">
-                </div>
-
-                <h2>The Journey</h2>
-                <ul class="timeline">
-                    <li class="timeline__item">
-                        <div class="timeline__date">2016 Q1</div>
-                        <div class="timeline__text">Internal POC development begins</div>
-                    </li>
-                    <li class="timeline__item">
-                        <div class="timeline__date">2016 Q3</div>
-                        <div class="timeline__text">Production deployment to NAVER Blog, Post, TV</div>
-                    </li>
-                    <li class="timeline__item">
-                        <div class="timeline__date">2016 Q4</div>
-                        <div class="timeline__text">Open source release (GitHub + NPM)</div>
-                    </li>
-                    <li class="timeline__item">
-                        <div class="timeline__date">2017 Q1</div>
-                        <div class="timeline__text">Demo page &amp; API documentation site</div>
-                    </li>
-                    <li class="timeline__item">
-                        <div class="timeline__date">2017 Q2</div>
-                        <div class="timeline__text">DEVIEW 2017 presentation (200+ attendees)</div>
-                    </li>
-                    <li class="timeline__item">
-                        <div class="timeline__date">2017 Q3</div>
-                        <div class="timeline__text">Axes input library extracted as separate package</div>
-                    </li>
-                    <li class="timeline__item">
-                        <div class="timeline__date">2017 Q4</div>
-                        <div class="timeline__text">GitHub 100★ milestone</div>
-                    </li>
-                    <li class="timeline__item">
-                        <div class="timeline__date">2018 Q1</div>
-                        <div class="timeline__text">Adopted by Amazon.com (automotive showroom)</div>
-                    </li>
-                    <li class="timeline__item">
-                        <div class="timeline__date">2018 Q2</div>
-                        <div class="timeline__text">Adopted by Hyundai Motor Company</div>
-                    </li>
-                    <li class="timeline__item">
-                        <div class="timeline__date">Current</div>
-                        <div class="timeline__text">531★ GitHub, 5K+ weekly NPM downloads</div>
-                    </li>
-                </ul>
-
-                <!-- SlideShare Embed: DEVIEW 2017 Talk (English translation) -->
-                <div class="case-study__hero-img">
                     <iframe src="https://www.slideshare.net/slideshow/embed_code/key/Fkl98FGPQSScbo"
-                            width="510" height="420" frameborder="0" marginwidth="0" marginheight="0"
+                            width="595" height="485" frameborder="0" marginwidth="0" marginheight="0"
                             scrolling="no" allowfullscreen loading="lazy"
                             style="border: 1px solid #CCC; border-width: 1px; margin-bottom: 5px; max-width: 100%;">
                     </iframe>
-                    <p class="diagram__caption">DEVIEW 2017 — "360° Viewer from Scratch" (English translation)</p>
+                    <p class="diagram__caption">Slide deck: "360° Viewer from Scratch" (English translation)</p>
                 </div>
 
-                <h2>Links</h2>
-                <div class="case-study__links">
-                    <a href="https://github.com/naver/egjs-view360">GitHub</a>
-                    <a href="https://naver.github.io/egjs-view360/">Live Demo</a>
-                    <a href="https://www.npmjs.com/package/@egjs/view360">NPM</a>
-                    <a href="https://deview.kr/2017/schedule/204">DEVIEW 2017 Talk</a>
-                    <a href="https://tv.naver.com/v/2293107">Talk Video</a>
-                    <a href="https://www.slideshare.net/slideshow/deview-2017-360-viewer-from-scratch/154118412">Slides (EN)</a>
-                    <a href="https://www.slideshare.net/slideshow/egjsview360/89040108">Slides (KR)</a>
-                    <a href="https://m.ddaily.co.kr/page/view/2017101621423425057">Press Coverage</a>
-                </div>
             </section>
 
             <nav class="case-study__nav">
