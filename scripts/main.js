@@ -1,10 +1,11 @@
-/* ── Floating nav: scroll-based active state + smooth scroll ── */
+/* ── Sticky nav: scroll-based active state + smooth scroll ── */
 (function() {
-  var nav = document.querySelector('.floating-nav');
+  var nav = document.querySelector('.sticky-nav');
   if (!nav) return;
 
-  var items = nav.querySelectorAll('.floating-nav__item');
+  var items = nav.querySelectorAll('.sticky-nav__item');
   var sections = [];
+  var navHeight = nav.offsetHeight;
 
   items.forEach(function(item) {
     var id = item.getAttribute('href').replace('#', '');
@@ -27,7 +28,7 @@
 
   // Update active on scroll
   function updateActive() {
-    var scrollY = window.scrollY + window.innerHeight / 3;
+    var scrollY = window.scrollY + navHeight + 40;
 
     var current = sections[0];
     for (var i = 0; i < sections.length; i++) {
@@ -37,9 +38,9 @@
     }
 
     items.forEach(function(item) {
-      item.classList.remove('floating-nav__item--active');
+      item.classList.remove('sticky-nav__item--active');
     });
-    if (current) current.link.classList.add('floating-nav__item--active');
+    if (current) current.link.classList.add('sticky-nav__item--active');
   }
 
   window.addEventListener('scroll', updateActive, { passive: true });

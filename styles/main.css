@@ -62,7 +62,7 @@ a:hover {
 hr {
   border: none;
   border-top: 1px solid var(--color-border);
-  margin: var(--sp-8) 0;
+  margin: var(--sp-4) 0;
 }
 
 code {
@@ -424,7 +424,7 @@ section {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   display: inline-block;
-  margin-bottom: var(--sp-8);
+  margin-bottom: var(--sp-4);
 }
 
 .case-study__back:hover {
@@ -440,7 +440,7 @@ section {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   font-family: var(--font-mono);
-  margin-bottom: var(--sp-8);
+  margin-bottom: var(--sp-4);
 }
 
 .case-study__hero-img {
@@ -463,6 +463,23 @@ section {
 
 .case-study__hero-img--no-border img {
   border: none;
+}
+
+/* Responsive video embed (16:9) */
+.video-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* Two-column: text left + image right */
@@ -528,7 +545,7 @@ section {
   padding-top: var(--sp-8);
   margin-top: var(--sp-4);
   border-top: 1px solid var(--color-border);
-  scroll-margin-top: 2rem;
+  scroll-margin-top: 4rem;
 }
 
 .cs-section:first-of-type {
@@ -536,65 +553,61 @@ section {
   margin-top: 0;
 }
 
-/* ── Floating Case Study Nav ── */
-.floating-nav {
-  position: fixed;
-  bottom: 1.5rem;
-  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
-  left: 50%;
-  transform: translateX(-50%);
+.cs-section__title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--sp-6);
+}
+
+/* ── Sticky Case Study Nav ── */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   gap: 0.5rem;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--color-border);
-  border-radius: 14px;
-  padding: 0.4rem;
-  z-index: 100;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  max-width: calc(100vw - 2rem);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--sp-2) 0;
+  margin-bottom: var(--sp-4);
   overflow-x: auto;
 }
 
-.floating-nav__item {
+.sticky-nav__item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.4rem 0.75rem 0.4rem 0.4rem;
-  border-radius: 10px;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
   text-decoration: none;
   color: var(--color-text-muted);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--text-sm);
   white-space: nowrap;
   transition: background 0.15s, color 0.15s;
 }
 
-.floating-nav__item:hover {
+.sticky-nav__item:hover {
   background: var(--color-bg-alt);
   color: var(--color-text);
 }
 
-.floating-nav__item--active {
+.sticky-nav__item--active {
   background: var(--color-text);
   color: #fff;
 }
 
-.floating-nav__item--active:hover {
+.sticky-nav__item--active:hover {
   background: var(--color-text);
   color: #fff;
 }
 
-.floating-nav__img {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.floating-nav__label {
+.sticky-nav__label {
   line-height: 1.2;
 }
 
@@ -828,12 +841,12 @@ section {
     left: calc(-1 * var(--sp-8) - 4px);
   }
 
-  .floating-nav__label {
-    display: none;
+  .sticky-nav__label {
+    font-size: var(--text-xs);
   }
 
-  .floating-nav__item {
-    padding: 0.4rem;
+  .sticky-nav__item {
+    padding: 0.4rem 0.6rem;
   }
 
   .metrics-strip {
