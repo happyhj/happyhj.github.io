@@ -73,7 +73,7 @@
                 </p>
                 <ol>
                     <li><strong>Provider matching</strong> — route by provider (Anthropic, Meta, Cohere, etc.)</li>
-                    <li><strong>Schema fingerprint</strong> — detect response structure (e.g. <code>messages</code> field → v2, <code>text</code> field → v1) to select the correct parsing config within that provider</li>
+                    <li><strong>Schema fingerprint</strong> — detect response structure at runtime from the LLM response (e.g. <code>messages</code> field → v2, <code>text</code> field → v1) to select the correct parsing config within that provider</li>
                 </ol>
                 <p>
                     This abstraction collapses hundreds of model IDs into a handful of provider × schema combinations, making bulk onboarding trivial.
@@ -86,7 +86,7 @@
                 </div>
 
                 <p>
-                    Onboarding time dropped from 3 weeks to config deployment. The two-level routing collapsed 100+ model IDs into a handful of provider × schema configs, making bulk onboarding trivial. Shipped 100+ Jumpstart catalog models for Guardrails at re:Invent 2024.
+                    Onboarding time dropped from 3 weeks to config deployment. The two-level routing collapsed 100+ model IDs into ~8 provider × schema configs. Shipped 100+ Jumpstart catalog models for Guardrails at re:Invent 2024.
                 </p>
 
             </section>
