@@ -36,12 +36,8 @@
                     <span class="sticky-nav__label">Open Source Journey</span>
                 </a>
                 <a href="#renderer-fusion" class="sticky-nav__item">
-                    <img src="../images/view360/demo.gif" alt="" class="sticky-nav__img">
-                    <span class="sticky-nav__label">Renderer &amp; Fusion</span>
-                </a>
-                <a href="#sensor-telemetry" class="sticky-nav__item">
-                    <img src="../images/sensor-fusion/arch.svg" alt="" class="sticky-nav__img">
-                    <span class="sticky-nav__label">Sensor Telemetry Viz</span>
+                    <img src="../images/view360/fusion-pipeline.png" alt="" class="sticky-nav__img">
+                    <span class="sticky-nav__label">Sensor Fusion &amp; Telemetry</span>
                 </a>
             </nav>
 
@@ -258,61 +254,6 @@
                          alt="View360 adopted by NAVER Blog, NAVER TV, V Live, and NAVER Real Estate"
                          loading="lazy">
                     <p class="diagram__caption">Adopted by NAVER Blog, TV, V Live, and Real Estate</p>
-                </div>
-            </section>
-
-            <!-- ════════════════════════════════════════════ -->
-            <!-- Real-Time Sensor Telemetry Viz               -->
-            <!-- ════════════════════════════════════════════ -->
-            <section id="sensor-telemetry" class="cs-section">
-
-                <div class="case-study__hero-img">
-                    <video autoplay muted loop playsinline>
-                        <source src="../images/sensor-fusion/full.mov" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-
-                <div class="tldr">
-                    <p>
-                        Built a real-time WebRTC telemetry viewer to debug motion sensor fusion at 60fps.
-                        Mobile sensor data streams to a PC for live waveform visualization and parameter tuning.
-                    </p>
-                </div>
-
-                <h2>Problem</h2>
-                <ul>
-                    <li>No way to visually inspect mobile sensor output in real time</li>
-                    <li><code>console.log</code> cannot reveal 60fps drift patterns or subtle calibration errors</li>
-                    <li>Parameter change → build → device test cycle was too slow for iterative tuning</li>
-                </ul>
-
-                <h2>Solution</h2>
-
-                <!-- SVG: sensor-viz-arch.svg -->
-                <div class="diagram">
-                    <img src="../images/sensor-fusion/arch.svg" alt="WebRTC telemetry architecture: mobile device streams sensor data to PC for real-time visualization">
-                </div>
-
-                <ul>
-                    <li><strong>WebRTC DataChannel</strong> for real-time mobile → PC sensor data transmission</li>
-                    <li><strong>Canvas-based waveform visualization</strong> showing gyro, gravity, and fusion result channels simultaneously</li>
-                    <li><strong>Long-duration accumulation graph</strong> for detecting slow drift patterns</li>
-                    <li>Live parameter adjustment without rebuild cycle</li>
-                </ul>
-
-                <h2>Why This Matters</h2>
-                <p>
-                    Real-time sensor data visualization for engineering decisions directly maps to
-                    satellite telemetry monitoring, autonomous system simulation debugging,
-                    and launch data visualization at companies like Blue Origin and Anduril.
-                </p>
-
-                <h2>Key Metrics</h2>
-                <div class="metrics-strip">
-                    <span class="metrics-strip__item">60fps real-time streaming</span>
-                    <span class="metrics-strip__item">Multi-channel waveform display</span>
-                    <span class="metrics-strip__item">Zero-rebuild parameter tuning</span>
                 </div>
             </section>
 
