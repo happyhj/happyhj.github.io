@@ -31,15 +31,83 @@
             <hr>
 
             <nav class="sticky-nav" aria-label="Case studies">
-                <a href="#open-source-journey" class="sticky-nav__item sticky-nav__item--active">
-                    <img src="../images/view360/adopters.png" alt="" class="sticky-nav__img">
-                    <span class="sticky-nav__label">Open Source Journey</span>
-                </a>
-                <a href="#renderer-fusion" class="sticky-nav__item">
+                <a href="#renderer-fusion" class="sticky-nav__item sticky-nav__item--active">
                     <img src="../images/view360/fusion-pipeline.png" alt="" class="sticky-nav__img">
                     <span class="sticky-nav__label">Sensor Fusion &amp; Telemetry</span>
                 </a>
+                <a href="#open-source-journey" class="sticky-nav__item">
+                    <img src="../images/view360/adopters.png" alt="" class="sticky-nav__img">
+                    <span class="sticky-nav__label">Open Source Journey</span>
+                </a>
             </nav>
+
+            <!-- ════════════════════════════════════════════ -->
+            <!-- Sensor Fusion & Telemetry                     -->
+            <!-- ════════════════════════════════════════════ -->
+            <section id="renderer-fusion" class="cs-section">
+
+                <p>
+                    Implementing 360° camera control in mobile browsers using DeviceMotion and DeviceOrientation APIs.
+                </p>
+
+                <h2>Problem</h2>
+                <p>
+                    The high-level orientation API bundled magnetometer data, causing the viewport to drift when nearby electronics moved. On certain devices, gyroscope drift accumulated silently — the image kept rotating even with the phone held still.
+                </p>
+
+                <div class="case-study__two-col">
+                    <div class="case-study__hero-img">
+                        <img src="../images/view360/magnetic-drift.gif"
+                             alt="Magnetic interference causing random viewport drift in 360° viewer"
+                             loading="lazy">
+                        <p class="diagram__caption">Magnetometer noise: nearby electronics cause random drift</p>
+                    </div>
+                    <div class="case-study__hero-img">
+                        <img src="../images/view360/gyro-drift.gif"
+                             alt="Gyroscope drift causing continuous slow rotation when device is stationary"
+                             loading="lazy">
+                        <p class="diagram__caption">Gyro drift: image keeps rotating on a stationary device</p>
+                    </div>
+                </div>
+
+                <h2>Solution</h2>
+                <p>
+                    Built a custom sensor fusion pipeline: split raw accelerometer and gyroscope streams, applied a complementary filter, and used the high-level API solely for stillness detection to correct drift offset. Added a telemetry dashboard to monitor orientation, drift, and corrections in real time.
+                </p>
+
+                <div class="case-study__two-col">
+                    <div class="case-study__hero-img">
+                        <img src="../images/view360/fusion-pipeline.png"
+                             alt="Sensor fusion pipeline: raw gyro + accelerometer streams merged via complementary filter"
+                             loading="lazy">
+                        <p class="diagram__caption">Complementary filter fusing gyro (short-term) and accelerometer (long-term)</p>
+                    </div>
+                    <div class="case-study__hero-img">
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/5Gr3lFUacdU"
+                                    title="Real-time sensor telemetry dashboard for View360"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                                    loading="lazy">
+                            </iframe>
+                        </div>
+                        <p class="diagram__caption">Telemetry dashboard: real-time orientation, drift, and correction monitoring</p>
+                    </div>
+                </div>
+
+                <h2>Result</h2>
+                <p>
+                    Stabilized motion control across Galaxy S6–S8, covering the majority of mobile users. Adopted by four NAVER services.
+                </p>
+
+                <div class="case-study__hero-img">
+                    <img src="../images/view360/adopted-services.jpg"
+                         alt="View360 adopted by NAVER Blog, NAVER TV, V Live, and NAVER Real Estate"
+                         loading="lazy">
+                    <p class="diagram__caption">Adopted by NAVER Blog, TV, V Live, and Real Estate</p>
+                </div>
+            </section>
 
             <!-- ════════════════════════════════════════════ -->
             <!-- Open Source Release & Adoption               -->
@@ -186,74 +254,6 @@
                     <a href="https://www.slideshare.net/slideshow/deview-2017-360-viewer-from-scratch/154118412">Slides (EN)</a>
                     <a href="https://www.slideshare.net/slideshow/egjsview360/89040108">Slides (KR)</a>
                     <a href="https://m.ddaily.co.kr/page/view/2017101621423425057">Press Coverage</a>
-                </div>
-            </section>
-
-            <!-- ════════════════════════════════════════════ -->
-            <!-- WebGL 360° Renderer + Sensor Fusion          -->
-            <!-- ════════════════════════════════════════════ -->
-            <section id="renderer-fusion" class="cs-section">
-
-                <p>
-                    Implementing 360° camera control in mobile browsers using DeviceMotion and DeviceOrientation APIs.
-                </p>
-
-                <h2>Problem</h2>
-                <p>
-                    The high-level orientation API bundled magnetometer data, causing the viewport to drift when nearby electronics moved. On certain devices, gyroscope drift accumulated silently — the image kept rotating even with the phone held still.
-                </p>
-
-                <div class="case-study__two-col">
-                    <div class="case-study__hero-img">
-                        <img src="../images/view360/magnetic-drift.gif"
-                             alt="Magnetic interference causing random viewport drift in 360° viewer"
-                             loading="lazy">
-                        <p class="diagram__caption">Magnetometer noise: nearby electronics cause random drift</p>
-                    </div>
-                    <div class="case-study__hero-img">
-                        <img src="../images/view360/gyro-drift.gif"
-                             alt="Gyroscope drift causing continuous slow rotation when device is stationary"
-                             loading="lazy">
-                        <p class="diagram__caption">Gyro drift: image keeps rotating on a stationary device</p>
-                    </div>
-                </div>
-
-                <h2>Solution</h2>
-                <p>
-                    Built a custom sensor fusion pipeline: split raw accelerometer and gyroscope streams, applied a complementary filter, and used the high-level API solely for stillness detection to correct drift offset. Added a telemetry dashboard to monitor orientation, drift, and corrections in real time.
-                </p>
-
-                <div class="case-study__two-col">
-                    <div class="case-study__hero-img">
-                        <img src="../images/view360/fusion-pipeline.png"
-                             alt="Sensor fusion pipeline: raw gyro + accelerometer streams merged via complementary filter"
-                             loading="lazy">
-                        <p class="diagram__caption">Complementary filter fusing gyro (short-term) and accelerometer (long-term)</p>
-                    </div>
-                    <div class="case-study__hero-img">
-                        <div class="video-embed">
-                            <iframe src="https://www.youtube.com/embed/5Gr3lFUacdU"
-                                    title="Real-time sensor telemetry dashboard for View360"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen
-                                    loading="lazy">
-                            </iframe>
-                        </div>
-                        <p class="diagram__caption">Telemetry dashboard: real-time orientation, drift, and correction monitoring</p>
-                    </div>
-                </div>
-
-                <h2>Result</h2>
-                <p>
-                    Stabilized motion control across Galaxy S6–S8, covering the majority of mobile users. Adopted by four NAVER services.
-                </p>
-
-                <div class="case-study__hero-img">
-                    <img src="../images/view360/adopted-services.jpg"
-                         alt="View360 adopted by NAVER Blog, NAVER TV, V Live, and NAVER Real Estate"
-                         loading="lazy">
-                    <p class="diagram__caption">Adopted by NAVER Blog, TV, V Live, and Real Estate</p>
                 </div>
             </section>
 
