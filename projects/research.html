@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HCI Research — TurtleTalk voice programming game (ACM CHI 2019) and Dimensional Alt Text accessibility research (ACM CHI 2023). Case studies by Heejae Kim.">
+    <meta name="description" content="HCI Research — TurtleTalk real-time voice-to-code game (ACM CHI 2019) and Dimensional Alt Text accessibility research (ACM CHI 2023). Case studies by Heejae Kim.">
     <title>HCI Research: Voice UI &amp; Accessibility — Heejae Kim</title>
 
     <meta property="og:title" content="HCI Research: Voice UI & Accessibility">
-    <meta property="og:description" content="2 ACM CHI publications — voice-driven programming for kids and layered alt text for screen readers.">
+    <meta property="og:description" content="2 ACM CHI publications — real-time voice-to-code on the web and layered alt text for screen readers.">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLDMVLH905"></script>
     <script>
@@ -40,143 +40,106 @@
             </nav>
 
             <!-- ════════════════════════════════════════════ -->
-            <!-- CS1: TurtleTalk                              -->
+            <!-- TurtleTalk                                    -->
             <!-- ════════════════════════════════════════════ -->
             <section id="turtletalk" class="cs-section">
 
-                <h2 class="cs-section__title">Case Study #1: TurtleTalk</h2>
+                <h2 class="cs-section__title">TurtleTalk: Real-Time Voice-to-Code on the Web</h2>
 
-                <div class="case-study__hero-img case-study__hero-img--no-border">
-                    <img src="../images/research/chi2019-logo.jpg"
-                         alt="ACM CHI 2019 — Glasgow, UK"
-                         loading="lazy"
-                         style="max-width: 200px;">
-                </div>
+                <h2>Context</h2>
+                <p>
+                    At NAVER Clova AI, built a voice-driven programming game for children. Kids speak commands to a turtle character on screen, and the turtle moves accordingly, teaching sequencing and iteration through play.
+                </p>
 
-                <div class="tldr">
-                    <p>
-                        Full-stack prototype published at ACM CHI 2019 — teaching children programming
-                        through voice commands and visual turtle graphics.
-                    </p>
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/wakJyI4jHKA"
+                            title="TurtleTalk live demo"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                 </div>
 
                 <h2>Problem</h2>
                 <p>
-                    Young children who haven't yet learned to type still benefit from early exposure
-                    to computational thinking — sequencing, repetition, and cause-and-effect in code.
-                    Existing tools (Scratch, Code.org) require reading, clicking, or dragging blocks,
-                    creating barriers for pre-literate or early-literate children.
+                    Children express the same intent in wildly different ways: "go forward", "move ahead", "just go straight." The system needed to handle this variance in real time, but the harder frontend challenge was orchestrating the full loop on the web: capture speech, send it to the model, receive code back, render the result as game animation, all while maintaining a natural conversational flow with a 6-year-old.
                 </p>
 
-                <h2>Solution</h2>
+                <h2>Solution: Three Key Design Decisions</h2>
 
-                <!-- SVG: turtletalk-arch.svg -->
-                <div class="diagram">
-                    <img src="../images/research/turtletalk-arch.svg" alt="TurtleTalk architecture: voice input → speech recognition → command parser → turtle graphics">
+                <p>
+                    <strong>1. Designed a minimal DSL to constrain the problem space.</strong> Defined Turtle Graphic Language (TGL) with only <code>go_forward</code>, <code>turn_right</code>, and <code>loop</code>, constraining the model's output space to improve accuracy and keep behavior predictable for 6-year-olds.
+                </p>
+
+                <p>
+                    <strong>2. Built the game interface with WebGL and real-time code visualization.</strong> Three synchronized panels: (a) WebGL-rendered isometric game map, (b) block-coding visualization showing translated TGL commands as the child speaks, (c) voice guide area with hints. Each updates independently so children see the full chain: speech → code → movement.
+                </p>
+
+                <div class="case-study__hero-img">
+                    <img src="../images/research/turtle-gui.png"
+                         alt="TurtleTalk GUI: Programming map, TGL block-coding area, and voice guide area"
+                         loading="lazy">
+                    <p class="diagram__caption">Three synchronized panels: Programming map / TGL area / Guide area</p>
                 </div>
 
                 <p>
-                    A browser-based prototype combining three web APIs into a seamless voice-to-code loop:
+                    <strong>3. Integrated the full voice interaction pipeline on the web.</strong> Wired up Clova Speech API (STT/TTS) with turn-taking conversation flow: turtle guides → child commands → turtle confirms → executes. The challenge was coordinating async speech recognition, model inference, and UI state into a seamless conversational loop. Cancel and undo were also voice-driven, exposing debugging concepts naturally.
                 </p>
-                <ul>
-                    <li>
-                        <strong>Web Speech API</strong> for real-time voice command recognition —
-                        the child speaks naturally, and the system interprets directional and control commands.
-                    </li>
-                    <li>
-                        <strong>Google Translate API</strong> for multilingual support —
-                        allowing children to speak commands in their native language
-                        (Korean, English, etc.) with automatic translation.
-                    </li>
-                    <li>
-                        <strong>Canvas-based turtle graphics</strong> for immediate visual feedback —
-                        the turtle moves, draws, and turns on screen as commands are spoken.
-                    </li>
-                </ul>
+
                 <p>
-                    The entire prototype runs in the browser with no installation required.
+                    The seq2seq model was built by ML engineers on the team. My role covered DSL design, WebGL game rendering, block-coding visualization, voice pipeline integration, and end-to-end system orchestration.
                 </p>
 
-                <h2>My Role</h2>
-                <ul>
-                    <li>Designed the interaction model: voice → parsed command → visual execution</li>
-                    <li>Built the full-stack prototype (frontend + voice processing pipeline)</li>
-                    <li>Implemented the multilingual command mapping via translation API</li>
-                    <li>Designed the visual turtle graphics rendering and animation</li>
-                    <li>Participated in user study design and prototype iteration</li>
-                    <!-- Content gap: user study results (Track B item #12) -->
-                </ul>
-
-                <h2>Impact</h2>
-                <ul>
-                    <li>Published at <strong>ACM CHI 2019</strong> (Glasgow, UK) — the top venue in Human-Computer Interaction</li>
-                    <li>Demonstrated that voice-based programming interfaces are viable for pre-literate children</li>
-                    <li>Prototype validated through user studies with children</li>
-                </ul>
+                <h2>Result</h2>
+                <p>
+                    Shipped a real-time speech-to-code pipeline on the web, integrating Clova Speech API (STT/TTS) with a seq2seq model. Published at ACM CHI 2019. 50 citations, 905 downloads.
+                </p>
 
                 <h2>Links</h2>
                 <div class="case-study__links">
                     <a href="https://doi.org/10.1145/3290607.3312773">ACM Digital Library</a>
+                    <a href="https://www.youtube.com/watch?v=MrsN08fzN9E">ACM SIGCHI Video →</a>
                 </div>
             </section>
 
             <!-- ════════════════════════════════════════════ -->
-            <!-- CS2: Dimensional Alt Text                    -->
+            <!-- Dimensional Alt Text                         -->
             <!-- ════════════════════════════════════════════ -->
             <section id="dimensional-alt-text" class="cs-section">
 
-                <h2 class="cs-section__title">Case Study #2: Dimensional Alt Text</h2>
+                <h2 class="cs-section__title">Dimensional Alt Text</h2>
+
+                <p>
+                    Co-authored a study proposing layered image descriptions using monocular depth estimation, enabling screen reader users to navigate foreground, middle ground, and background independently. Published at ACM CHI 2023.
+                </p>
 
                 <div class="case-study__hero-img">
                     <img src="../images/research/alttext-figure3.png"
-                         alt="Prototype comparison: Conventional alt text (single flat description) vs Dimensional alt text (layered foreground, middle ground, background descriptions)"
+                         alt="Conventional alt text vs Dimensional alt text with layered depth descriptions"
                          loading="lazy">
-                    <p class="diagram__caption">Prototype of Dimensional alt text for comparison with conventional alt text</p>
                 </div>
 
-                <div class="tldr">
-                    <p>
-                        Enhancing spatial understanding for screen reader users —
-                        a layered alt text system published at ACM CHI 2023.
-                    </p>
-                </div>
-
-                <h2>Problem</h2>
-                <p>
-                    Traditional alt text provides a single flat description of an image,
-                    which fails to convey spatial relationships, object positions,
-                    and the dimensional structure that sighted users perceive at a glance.
-                    Screen reader users miss critical context about where things are in an image.
-                </p>
-
-                <h2>Contribution</h2>
-                <p>
-                    Co-authored a study proposing layered image descriptions that separate
-                    overall scene context from spatial details and individual object descriptions.
-                    This dimensional approach gives screen reader users the ability to navigate
-                    image content at different levels of detail.
-                    <!-- Content gap: specific contribution (Track B item #11) -->
-                </p>
-
-                <h2>Impact</h2>
-                <div class="case-study__two-col">
-                    <ul>
-                        <li>Published at <strong>ACM CHI 2023</strong> (Hamburg, Germany)</li>
-                        <li>Advances accessibility research for non-visual image understanding</li>
-                        <li>Applicable to web accessibility standards and assistive technology design</li>
-                    </ul>
-                    <div class="case-study__hero-img">
-                        <img src="../images/research/chi2023-poster.jpg"
-                             alt="Heejae Kim presenting the Dimensional Alt Text poster at ACM CHI 2023, Hamburg"
-                             loading="lazy">
-                    </div>
-                </div>
-
-                <h2>Links</h2>
                 <div class="case-study__links">
                     <a href="https://dl.acm.org/doi/full/10.1145/3544549.3585706">ACM Digital Library</a>
                 </div>
             </section>
+
+            <!-- ════════════════════════════════════════════ -->
+            <!-- CHI Presenting Photos                        -->
+            <!-- ════════════════════════════════════════════ -->
+            <div class="case-study__two-col" style="margin-top: var(--sp-8);">
+                <div class="case-study__hero-img">
+                    <img src="../images/research/turtle-presenting.jpg"
+                         alt="Heejae Kim presenting TurtleTalk at ACM CHI 2019 poster session, Glasgow"
+                         loading="lazy">
+                    <p class="diagram__caption">ACM CHI 2019 · Glasgow</p>
+                </div>
+                <div class="case-study__hero-img">
+                    <img src="../images/research/chi2023-poster.jpg"
+                         alt="Heejae Kim presenting Dimensional Alt Text at ACM CHI 2023 poster session, Hamburg"
+                         loading="lazy">
+                    <p class="diagram__caption">ACM CHI 2023 · Hamburg</p>
+                </div>
+            </div>
 
             <nav class="case-study__nav">
                 <a href="bedrock.html">← Previous: Bedrock Guardrails</a>
