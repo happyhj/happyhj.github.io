@@ -160,7 +160,7 @@ section {
 .work-card__thumb {
   display: block;
   overflow: hidden;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   background: var(--color-bg-alt);
 }
 

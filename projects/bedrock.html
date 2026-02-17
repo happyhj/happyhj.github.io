@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Guardrails for Amazon Bedrock — Config-driven model onboarding for 100+ models, console decoupling for independent releases. Case study by Heejae Kim.">
+    <meta name="description" content="Guardrails for Amazon Bedrock — config-driven model onboarding, shipping 100+ models at re:Invent 2024. Case study by Heejae Kim.">
     <title>Guardrails for Amazon Bedrock — Heejae Kim</title>
 
     <meta property="og:title" content="Guardrails for Amazon Bedrock">
-    <meta property="og:description" content="Config-driven onboarding of 100+ Gen AI models for re:Invent 2024. Zero-regression launch.">
+    <meta property="og:description" content="Config-driven onboarding of 100+ Gen AI models for re:Invent 2024.">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLDMVLH905"></script>
     <script>
@@ -26,145 +26,62 @@
             <a href="../" class="case-study__back">← Back to Portfolio</a>
 
             <h1>Guardrails for Amazon Bedrock</h1>
-            <p class="case-study__meta">Amazon Web Services · SDE II</p>
+            <p class="case-study__meta">Amazon Web Services</p>
 
             <hr>
 
-            <nav class="sticky-nav" aria-label="Case studies">
-                <a href="#config-driven" class="sticky-nav__item sticky-nav__item--active">
-                    <span class="sticky-nav__label">Config-Driven Architecture</span>
-                </a>
-                <a href="#console-decoupling" class="sticky-nav__item">
-                    <span class="sticky-nav__label">Console Decoupling</span>
-                </a>
-            </nav>
-
             <!-- ════════════════════════════════════════════ -->
-            <!-- CS1: Config-Driven Model Onboarding          -->
+            <!-- Config-Driven Model Onboarding               -->
             <!-- ════════════════════════════════════════════ -->
             <section id="config-driven" class="cs-section">
 
-                <h2 class="cs-section__title">Case Study #1: Config-Driven Architecture</h2>
+                <h2 class="cs-section__title">Config-Driven Model Onboarding</h2>
 
-                <div class="tldr">
-                    <p>
-                        Redesigned model onboarding from 3-week custom code per model to a config file.
-                        Shipped 100+ models across modalities with zero regression for re:Invent 2024.
-                    </p>
+                <div class="case-study__two-col">
+                    <div>
+                        <h2>Context</h2>
+                        <p>
+                            Bedrock provides LLM inference APIs across multiple models. Guardrails scans user queries and model responses for unwanted content, masking or blocking it with replacement messages.
+                        </p>
+                    </div>
+                    <div class="case-study__hero-img">
+                        <img src="../images/bedrock/guardrails-modelselector.png"
+                             alt="Guardrails model selector showing supported models across modalities"
+                             loading="lazy">
+                        <p class="diagram__caption">Guardrails model selector across modalities</p>
+                    </div>
                 </div>
 
                 <h2>Problem</h2>
 
-                <!-- SVG: bedrock-before.svg -->
                 <div class="diagram">
-                    <img src="../images/bedrock/before.svg" alt="Before: each model requires custom adapter code, 3 weeks per model">
+                    <img src="../images/bedrock/before.svg" alt="Before: hardcoded if/else parsing per model, 3 weeks per onboarding">
                 </div>
 
                 <p>
-                    Each new model onboarded to Guardrails required custom integration code —
-                    handling its specific request/response format, modality (text, image, video),
-                    and API contract. Every model took roughly 3 weeks of engineering work,
-                    and each modality owner implemented their own adapter logic.
-                </p>
-                <p>
-                    With 100+ foundation models and Bedrock rapidly expanding,
-                    this manual approach was unsustainable for the re:Invent 2024 deadline.
+                    Guardrails needed to parse and write to LLM response text — but each model had a different schema. The existing approach was hardcoded if/else parsing logic per model, embedded in a Bedrock team-owned package. Every code change required their review and deployment cycle. Onboarding a new model with a schema change took an estimated 3 weeks.
                 </p>
 
                 <h2>Solution</h2>
 
-                <!-- SVG: bedrock-after.svg -->
                 <div class="diagram">
-                    <img src="../images/bedrock/after.svg" alt="After: config-driven factory pattern — one config file per model, zero code changes">
+                    <img src="../images/bedrock/after.svg" alt="After: config-driven — one config file per model, zero code changes">
                 </div>
 
-                <h3>1. Config-Driven Model Onboarding</h3>
                 <p>
-                    Redesigned the onboarding flow from custom code per model to a declarative
-                    configuration system. Each model's guardrails integration is defined by a config
-                    file specifying modality, request/response schema mapping, and policy application points.
-                    New models onboard by adding a config entry — no code changes required.
-                    <!-- Content gap: config file structure (Track B item #8) -->
+                    Decoupled model-specific logic into config files — each file defines the parsing pattern and skeleton response structure for a given model ID. Business logic loads the config at runtime, so onboarding a new model requires only adding a config file, with no changes to the Bedrock team's package.
                 </p>
 
-                <h3>2. Cross-Modality Compatibility</h3>
-                <p>
-                    Partnered with text, image, and video modality owners to validate that
-                    the config-driven system correctly handles each modality's unique guardrails requirements.
-                    Ensured zero-regression across all existing integrations during migration.
-                    <!-- Content gap: cross-modality verification process (Track B item #9) -->
-                </p>
+                <h2>Result</h2>
 
-                <h2>Shipping &amp; Launch</h2>
-
-                <!-- SVG: bedrock-scale.svg -->
                 <div class="diagram">
-                    <img src="../images/bedrock/scale.svg" alt="Onboarding speed comparison: 3 weeks per model vs config-only instant onboarding">
+                    <img src="../images/bedrock/scale.svg" alt="Onboarding speed: 3 weeks per model → config-only deployment">
                 </div>
 
                 <p>
-                    Successfully onboarded 100+ models for the re:Invent 2024 launch with zero regressions.
-                    The config-driven architecture means future models automatically inherit guardrails support.
+                    Onboarding time dropped from 3 weeks to config deployment. Bulk onboarding became possible — shipped 100+ Jumpstart catalog models for Guardrails at re:Invent 2024.
                 </p>
 
-                <h2>Key Metrics</h2>
-                <div class="metrics-strip">
-                    <span class="metrics-strip__item">100+ models onboarded</span>
-                    <span class="metrics-strip__item">3wk → 0 code changes</span>
-                    <span class="metrics-strip__item">Zero regression</span>
-                </div>
-            </section>
-
-            <!-- ════════════════════════════════════════════ -->
-            <!-- CS2: Console Decoupling & DX                 -->
-            <!-- ════════════════════════════════════════════ -->
-            <section id="console-decoupling" class="cs-section">
-
-                <h2 class="cs-section__title">Case Study #2: Console Decoupling</h2>
-
-                <div class="tldr">
-                    <p>
-                        Decoupled the Guardrails console from Bedrock core — achieving release independence
-                        and cutting code review cycle time by 50%.
-                    </p>
-                </div>
-
-                <h2>Problem</h2>
-                <p>
-                    The Guardrails console code lived inside the core Bedrock console codebase.
-                    Every UI change required code review from the core Bedrock team,
-                    creating a bottleneck that slowed feature delivery.
-                    Merge conflicts between Guardrails and other Bedrock features were frequent.
-                </p>
-
-                <h2>Solution</h2>
-
-                <!-- SVG: console-decouple.svg -->
-                <div class="diagram">
-                    <img src="../images/bedrock/decouple.svg" alt="Console decoupling: before (monolithic) vs after (independent Guardrails package)">
-                </div>
-
-                <p>
-                    Decoupled the Guardrails console into a separate package with its own
-                    build and deployment pipeline. Defined clear API boundaries between
-                    Guardrails and core Bedrock console code.
-                    <!-- Content gap: decoupling strategy details (Track B item #10) -->
-                </p>
-
-                <h2>Impact</h2>
-                <ul>
-                    <li>Code review waiting time cut by <strong>50%</strong></li>
-                    <li>Merge conflicts eliminated</li>
-                    <li>Guardrails team owns their release cycle independently</li>
-                    <li>Scalable architecture for future Bedrock feature teams</li>
-                </ul>
-
-                <h2>Key Metrics</h2>
-                <div class="metrics-strip">
-                    <span class="metrics-strip__item">50%↓ code review cycle</span>
-                    <span class="metrics-strip__item">0 merge conflicts</span>
-                    <span class="metrics-strip__item">Independent releases</span>
-                </div>
             </section>
 
             <nav class="case-study__nav">
