@@ -198,120 +198,66 @@
             <!-- ════════════════════════════════════════════ -->
             <section id="renderer-fusion" class="cs-section">
 
-                <div class="case-study__hero-img">
-                    <img src="../images/view360/demo.gif"
-                         alt="View360 — interactive 360 degree panorama viewer demo"
-                         loading="lazy">
-                </div>
-
-                <div class="tldr">
-                    <p>
-                        NAVER services (Blog, Post, TV, Realestate) needed 360° media support.
-                        I designed and built a WebGL renderer and custom sensor fusion from scratch to solve critical mobile UX failures in existing solutions.
-                    </p>
-                </div>
+                <p>
+                    Implementing 360° camera control in mobile browsers using DeviceMotion and DeviceOrientation APIs.
+                </p>
 
                 <h2>Problem</h2>
                 <p>
-                    Existing web-based 360° solutions had critical mobile UX failures:
+                    The high-level orientation API bundled magnetometer data, causing the viewport to drift when nearby electronics moved. On certain devices, gyroscope drift accumulated silently — the image kept rotating even with the phone held still.
                 </p>
 
-                <!-- SVG: sensor-problem.svg -->
-                <div class="diagram">
-                    <img src="../images/view360/sensor-problem.svg" alt="Four mobile sensor problems: magnetic noise, gyro drift, orientation flip, wrong initial view">
+                <div class="case-study__two-col">
+                    <div class="case-study__hero-img">
+                        <img src="../images/view360/magnetic-drift.gif"
+                             alt="Magnetic interference causing random viewport drift in 360° viewer"
+                             loading="lazy">
+                        <p class="diagram__caption">Magnetometer noise: nearby electronics cause random drift</p>
+                    </div>
+                    <div class="case-study__hero-img">
+                        <img src="../images/view360/gyro-drift.gif"
+                             alt="Gyroscope drift causing continuous slow rotation when device is stationary"
+                             loading="lazy">
+                        <p class="diagram__caption">Gyro drift: image keeps rotating on a stationary device</p>
+                    </div>
                 </div>
-
-                <ul>
-                    <li><strong>Magnetic sensor noise</strong> — The browser's <code>deviceorientation</code> event includes magnetometer data. Nearby electronics or metal objects caused the camera to drift randomly.</li>
-                    <li><strong>Uncalibrated gyroscopes</strong> — Some Android devices ship with poorly calibrated gyroscopes, causing continuous slow rotation even when perfectly still.</li>
-                    <li><strong>Broken orientation when lying down</strong> — VR-style direct mapping of device angles to camera angles breaks when the user holds the phone at unusual angles.</li>
-                    <li><strong>Wrong initial view</strong> — Loading the viewer while the phone is on a table always shows the floor; loading while lying down shows the ceiling.</li>
-                </ul>
 
                 <h2>Solution</h2>
-
-                <h3>1. Custom Sensor Fusion</h3>
                 <p>
-                    Replaced the high-level <code>deviceorientation</code> API (which includes magnetometer noise) with a custom sensor fusion implementation.
-                    Using raw gyroscope and accelerometer data from the <code>devicemotion</code> API, I implemented a complementary filter that:
+                    Built a custom sensor fusion pipeline: split raw accelerometer and gyroscope streams, applied a complementary filter, and used the high-level API solely for stillness detection to correct drift offset. Added a telemetry dashboard to monitor orientation, drift, and corrections in real time.
                 </p>
 
-                <!-- SVG: sensor-fusion-pipeline.svg -->
-                <div class="diagram">
-                    <img src="../images/view360/sensor-fusion-pipeline.svg" alt="Sensor fusion pipeline: gyro for short-term, accelerometer for long-term, SLERP blending">
+                <div class="case-study__two-col">
+                    <div class="case-study__hero-img">
+                        <img src="../images/view360/fusion-pipeline.png"
+                             alt="Sensor fusion pipeline: raw gyro + accelerometer streams merged via complementary filter"
+                             loading="lazy">
+                        <p class="diagram__caption">Complementary filter fusing gyro (short-term) and accelerometer (long-term)</p>
+                    </div>
+                    <div class="case-study__hero-img">
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/5Gr3lFUacdU"
+                                    title="Real-time sensor telemetry dashboard for View360"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                                    loading="lazy">
+                            </iframe>
+                        </div>
+                        <p class="diagram__caption">Telemetry dashboard: real-time orientation, drift, and correction monitoring</p>
+                    </div>
                 </div>
 
-                <ul>
-                    <li>Trusts the gyroscope for short-term responsiveness (smooth, low-latency rotation tracking)</li>
-                    <li>Trusts the accelerometer for long-term stability (absolute gravity reference, no accumulated drift)</li>
-                    <li>Blends both using quaternion spherical interpolation (SLERP) to avoid gimbal lock artifacts</li>
-                </ul>
-
-                <h3>2. Gyroscope Zero-Point Calibration</h3>
-
-                <!-- SVG: gyro-calibration.svg -->
-                <div class="diagram">
-                    <img src="../images/view360/gyro-calibration.svg" alt="Gyroscope zero-point calibration: detect stationary moments, capture offset, subtract from readings">
-                </div>
-
+                <h2>Result</h2>
                 <p>
-                    Detected device-stationary moments by observing gaps in <code>deviceorientation</code> events (Android stops firing the event when the device is still).
-                    During these quiet periods, the current gyroscope reading is captured as the zero-point offset and subtracted from subsequent readings — eliminating factory calibration errors.
+                    Stabilized motion control across Galaxy S6–S8, covering the majority of mobile users. Adopted by four NAVER services.
                 </p>
-
-                <h3>3. Relative Rotation System</h3>
-                <p>
-                    Instead of directly mapping device orientation to camera angles, I track frame-to-frame rotation changes in the device's own coordinate system.
-                    This means the user's physical posture — sitting, lying down, or tilting — doesn't matter. Only the relative device movement drives the camera.
-                </p>
-
-                <h3>4. Cosine Correction for Tilted Body Rotation</h3>
-
-                <!-- SVG: cosine-correction.svg -->
-                <div class="diagram">
-                    <img src="../images/view360/cosine-correction.svg" alt="Cosine correction: decomposing yaw and roll when device is tilted during body rotation">
-                </div>
-
-                <p>
-                    When a user rotates their body while holding the phone at an angle, the intended rotation gets split across the device's yaw and roll axes.
-                    I added cosine-weighted decomposition: extracting only the gravity-axis-parallel component of both yaw and roll changes, so the sum correctly represents the user's intended rotation regardless of tilt.
-                </p>
-
-                <h3>5. Reusable Input Library (Axes)</h3>
-                <p>
-                    Extracted all input handling (touch swipe, mouse drag, keyboard, pinch zoom, device motion) into a separate library called <strong>Axes</strong>.
-                    It defines N-dimensional value axes with configurable ranges, circular wrapping, bounce padding, and pluggable input types — reusable for any interactive component.
-                </p>
-
-                <h2>Patent</h2>
 
                 <div class="case-study__hero-img">
-                    <img src="../images/view360/patent-demo.gif"
-                         alt="Cognitive 360 Viewer — radar-style bird's-eye minimap showing detected faces in 360° image"
+                    <img src="../images/view360/adopted-services.jpg"
+                         alt="View360 adopted by NAVER Blog, NAVER TV, V Live, and NAVER Real Estate"
                          loading="lazy">
-                </div>
-
-                <p>
-                    <strong>Method for Visualizing Subject Information of Image</strong> (Granted, 2019)<br>
-                    Derived from View360 development — 360° image object detection with radar-style bird's-eye minimap for showing object positions.
-                    Originated from a NAVER Hackday 1st place win.
-                </p>
-
-                <h2>Key Metrics</h2>
-                <div class="metrics-strip">
-                    <span class="metrics-strip__item">531 ★ GitHub</span>
-                    <span class="metrics-strip__item">5K+ weekly NPM downloads</span>
-                    <span class="metrics-strip__item">1 Patent Granted (2019)</span>
-                </div>
-
-                <h2>Links</h2>
-                <div class="case-study__links">
-                    <a href="https://github.com/naver/egjs-view360">GitHub</a>
-                    <a href="https://naver.github.io/egjs-view360/">Live Demo</a>
-                    <a href="https://www.npmjs.com/package/@egjs/view360">NPM</a>
-                    <a href="https://deview.kr/2017/schedule/204">DEVIEW 2017 Talk</a>
-                    <a href="https://tv.naver.com/v/2293107">Talk Video</a>
-                    <a href="https://www.slideshare.net/slideshow/egjsview360/89040108">Slides</a>
+                    <p class="diagram__caption">Adopted by NAVER Blog, TV, V Live, and Real Estate</p>
                 </div>
             </section>
 
